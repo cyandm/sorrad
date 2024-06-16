@@ -8,7 +8,9 @@ $footer_logo = get_option('footer_logo');
 $footer_inperson = get_option('footer_inperson');
 $footer_support = get_option('footer_support');
 $footer_hours = get_option('footer_hours');
-
+$btn_link_whatsapp = get_option('btn_link_whatsapp');
+$btn_link_phones = get_option('btn_link_phones');
+$btn_link_instagram = get_option('btn_link_instagram');
 ?>
 
 <?php if ( $render_template ) : ?>
@@ -70,9 +72,9 @@ $footer_hours = get_option('footer_hours');
 			</ul>
 			<div class="mt-9 sm:w-[100%]">
 				<ul class="space-y-5 text-xs">
-					<li><a href="#" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="phone"></i> شماره تماس ها</a></li>
-					<li><a href="#" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="instagram"></i> اینستاگرام ها</a></li>
-					<li><a href="#" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="whatsapp"></i> ارتباط در واتس اپ</a></li>
+					<li><a href="<?= esc_url($btn_link_phones);?>" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="phone"></i> شماره تماس ها</a></li>
+					<li><a href="<?= esc_url($btn_link_instagram);?>" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="instagram"></i> اینستاگرام ها</a></li>
+					<li><a href="<?= esc_url($btn_link_whatsapp);?>" class="rounded-3xl block w-52 py-2 px-8 bg-secondary"><i class="iconsax" icon-name="whatsapp"></i> ارتباط در واتس اپ</a></li>
 				</ul>
 			</div>
 		</div>

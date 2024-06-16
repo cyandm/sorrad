@@ -19,7 +19,9 @@ module.exports = {
         'pink' : '#F4C0D5',
         'blue' : '#BAC5F6',
         'whiteopacity' : '#FFFFFFA3',
-        'secondtext' : '#54585F'
+        'secondtext' : '#54585F',
+        'bg-content' : '#D1D1D1',
+        'white-24' : 'rgba(255, 255, 255, 0.24)',
       },
       fontFamily: {
         peyda: ['Peyda', 'sans-serif'],
@@ -38,6 +40,12 @@ module.exports = {
       },
       boxShadow: {
         'cxl': 'inset 0 0px 9px rgba(0, 0, 0, 0.1)',
+      },
+      borderRadius: {
+        '4xl': '1.75rem',
+      },
+      lineHeight: {
+        '424': '4.25rem',
       }
     },
   },

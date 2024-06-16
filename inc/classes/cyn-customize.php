@@ -105,6 +105,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 					'panel' => 'demo_panel'
 				]
 			);
+			
 
 			//header
 			$this->cyn_add_control( $wp_customize, 'header_section', 'text', 'link_search_page', 'لینک صفحه جستجو' );
@@ -120,6 +121,9 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'footer_inperson', 'خرید حضوری' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'footer_support', 'پشتیبانی سایت' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'footer_hours', 'ساعات پاسخگویی' );
+			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_whatsapp', 'لینک دکمه ارتباط در واتس اپ' );
+			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_phones', 'لینک دکمه شماره تماس ها' );
+			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_instagram', 'لینک دکمه اینستاگرام ها' );
 
 			//بخش سوالات متداول اینجا دسته ها انتخاب میشه برای نمایش
 			$categories = get_terms(array(

@@ -105,8 +105,8 @@ li.accordion-item:last-child{
 }
 .accordion-item .accordion-content{
   display: none;
-  font-size:16px;
-  line-height:36px;
+  font-size:1rem;
+  line-height:2.25rem;
   color:#545454;
 }
 li.accordion-item h2.active {
@@ -134,14 +134,14 @@ li.accordion-item:first-child .accordion-content {
 }
 
 #main-menu li ul li {
-  min-width: 200px;
+  min-width: 12.5rem;
 }
 #main-menu li a {
   padding-block: 1.75rem;
   display: block;
 }
 #main-menu li ul li a {
-  padding: 10px;
+  padding: 0.625rem;
   display: block;
 }
 
@@ -172,7 +172,7 @@ li.accordion-item:first-child .accordion-content {
 }
 
 #mobile-menu li ul li a {
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 #mobile-menu .sub-menu-toggle {
@@ -185,7 +185,7 @@ li.accordion-item:first-child .accordion-content {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 15px;
+  padding: 1rem;
   position: absolute;
   z-index: 0;
   line-height: 0;
@@ -193,4 +193,17 @@ li.accordion-item:first-child .accordion-content {
 
 #mobile-menu .menu-item-has-children > .sub-menu-toggle {
   display: block;
+}
+/*--- instagram-page----*/
+.instagram-page p{
+  margin-bottom:1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+.instagram-page p a{
+  text-decoration: underline;
+  font-size:1rem;
+}
+@media (max-width:768px){
+
 }
