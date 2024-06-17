@@ -207,3 +207,30 @@ li.accordion-item:first-child .accordion-content {
 @media (max-width:768px){
 
 }
+/*-- about-us page---*/
+.about-us-page p{
+    color:#85878C;
+    font-size:1rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+    margin-block-end:1rem;
+}
+.about-us-page h2{
+  font-size:1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  color:#333;
+  margin-block-end: 1rem;
+}
+.about-us-page img,#about-us-page video{
+  margin:2.1rem auto;
+  border-radius: 1.75rem;
+}
+.about-us-page blockquote{
+  padding:1.25rem;
+  border:1px solid #C2C2C2;
+  border-radius: 1rem;
+}
+.about-us-page .gallery img{
+  margin:0;
+}
