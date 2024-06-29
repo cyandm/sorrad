@@ -22,6 +22,7 @@ module.exports = {
         'secondtext' : '#54585F',
         'bg-content' : '#D1D1D1',
         'white-24' : 'rgba(255, 255, 255, 0.24)',
+        'white-64' : 'rgba(255, 255, 255, 0.64)',
       },
       fontFamily: {
         peyda: ['Peyda', 'sans-serif'],

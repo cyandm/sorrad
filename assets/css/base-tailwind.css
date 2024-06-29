@@ -234,3 +234,73 @@ li.accordion-item:first-child .accordion-content {
 .about-us-page .gallery img{
   margin:0;
 }
+/*--  single post ---*/
+.single-page{
+  color:#333333;
+}
+.single-page h1{
+  font-size:3rem;
+  line-height: 4.1rem;
+  margin-block-end:1.25rem;
+  font-weight: 500;
+}
+.single-page h2{
+  font-size:2.25rem;
+  line-height: 3.1rem;
+  margin-block-end:1.25rem;
+  font-weight: 500;
+}
+.single-page h3{
+  font-size:2rem;
+  line-height: 2.75rem;
+  margin-block-end:1rem;
+  font-weight: 500;
+}
+.single-page h4{
+  font-size:1.75rem;
+  line-height: 2.43rem;
+  margin-block-end:1rem;
+  font-weight: 500;
+}
+.single-page h5{
+  font-size:1.5rem;
+  line-height: 2.1rem;
+  font-weight: 500;
+  margin-block-end:1rem;
+}
+.single-page h6{
+  font-size:1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  margin-block-end:1rem;
+}
+.single-page p{
+  margin-block-end:1.25rem;
+}
+
+/*-------------------------------------------------------------------------------
+  1.WordPress WYSIWYG styles
+-------------------------------------------------------------------------------*/
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter, div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}

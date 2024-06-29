@@ -24,3 +24,20 @@ require_once ( __DIR__ . '/inc/functions/cyn-acf.php' );
 new cyn_theme_init( false, '0.0.0' );
 new cyn_register();
 new cyn_customize();
+
+function add_id_to_headings($content) {
+    // Regular expression to match all heading tags (h1-h6)
+    $pattern = '/<h([1-6])>(.*?)<\/h\1>/i';
+    $replacement = '<h$1 id="$2">$2</h$1>';
+
+    // Add id attribute to each heading tag
+    $content = preg_replace_callback($pattern, function ($matches) {
+        $heading_level = $matches[1];
+        $heading_text = sanitize_title($matches[2]);
+        return '<h' . $heading_level . ' id="' . $heading_text . '">' . $matches[2] . '</h' . $heading_level . '>';
+    }, $content);
+
+    return $content;
+}
+add_filter('the_content', 'add_id_to_headings');
+
