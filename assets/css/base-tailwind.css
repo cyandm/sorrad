@@ -2,235 +2,294 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    box-sizing: border-box;
-    font-family: 'Peyda';
-  }
-i{
-    width: 15px;
-  background: red;
-  height: 15px;
-  display: inline-block;
-  position: relative;
-}
-#sliding-menu.show{
-    width: 100%;
-}
-.homeslider a{
-  background-color:#090909;
-  color:#fff;
-  padding-inline:1.5rem;
-  padding-block:0.5rem;
-  border-radius: 2rem;
-  font-weight: 400;
-  font-size:1rem;
-  display: inline-block;
-  margin-block-start:1rem;
-}
-.homeslider p,.homeslider h3{
-  font-size:2.25rem;
-  color:#fff;
-}
-@media (max-width:768px){
-  .homeslider p,.homeslider h3{
-    font-size:1.25rem;
-  }
-}
-.tabs{
-    width: 15%;
-}
-.tab{
-  cursor: pointer;
-  border-radius: 2.5rem;
-  font-size:1rem;
-  line-height: 1.5rem;
-  color:#333;
-  box-shadow: 0px 0px 4px 0px #00000014 inset;
-  padding-block:0.7rem;
-  margin-block-end:1rem;
-  text-align: center;
-}
-.tab.active{
-  background-color:#090909;
-  color:#fff;
- box-shadow:none;
-}
-.tab-content{
-  display: none;
-  padding:1.5rem 1rem;
-  border-radius: 1.5rem;
-  box-shadow: 0px 0px 4px 0px #00000014 inset;
-  color:#545454;
-  font-size: 1rem;
-  line-height: 2.25rem;
-  width: 85%;
-}
-.tab-content.active{
-  display: block;
-}
-@media (max-width:768px) {
-  .tabs{
-      width: 100%;
-      border-bottom: 1px solid #C2C2C2;
-      display: flex;
-    }
-    .tab{
-      color:#C2C2C2;
-      border-radius: 0px;
-      box-shadow: none;
-      margin-bottom: 0;
-      padding-inline: 1.25rem;
-    }
-    .tab.active{
-      color:#333;
-      background:none;
-      border-bottom:1px solid #333;
-    }
-    .tab-content{
-      width: 100%;
-    }
-}
-li.accordion-item{
-  border-bottom: 1px solid #4D4D4D1A;
-}
-li.accordion-item:last-child{
-  border-bottom: 0px solid;
-}
-.accordion-item h2{
-  color:#808080;
-  cursor: pointer;
-}
-.accordion-content a{
-  color:#001AFF;
-}
-.accordion-item .accordion-content{
-  display: none;
-  font-size:1rem;
-  line-height:2.25rem;
-  color:#545454;
-}
-li.accordion-item h2.active {
-  color:#333;
-}
-li.accordion-item:first-child .accordion-content {
-    display: block;
+/*Peyda Fonts*/
+@layer base {
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 100;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Thin.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Thin.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Thin.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 200;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-ExtraLight.woff2')
+				format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-ExtraLight.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-ExtraLight.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 300;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Light.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Light.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Light.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Regular.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Regular.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Regular.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Medium.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Medium.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Medium.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 600;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-SemiBold.woff2')
+				format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-SemiBold.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-SemiBold.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Bold.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Bold.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Bold.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 800;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-ExtraBold.woff2')
+				format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-ExtraBold.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-ExtraBold.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'Peyda-1';
+		font-style: normal;
+		font-weight: 900;
+		font-display: swap;
+		src: url('../fonts/peyda/woff2/PeydaWebFaNum-Black.woff2') format('woff2'),
+			url('../fonts/peyda/TTF/PeydaFaNum-Black.ttf') format('TrueType'),
+			url('../fonts/peyda/woff/PeydaWebFaNum-Black.woff') format('woff');
+	}
 }
 
+@layer base {
+	* {
+		@apply font-peyda;
+		font-feature-settings: 'ss01' 1;
+		font-variant-ligatures: discretionary-ligatures;
+	}
+}
+
+#sliding-menu.show {
+	width: 100%;
+}
 /*-------main-menu---------*/
 #main-menu li {
-  position: relative;
+	position: relative;
 }
 #main-menu li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: #FFFFFFA3;
-  border-radius: 0 0 1.5rem 1.5rem;
-  padding-bottom:1rem;
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: #ffffffa3;
+	border-radius: 0 0 1.5rem 1.5rem;
+	padding-bottom: 1rem;
 }
 
 #main-menu li ul li {
-  min-width: 12.5rem;
+	min-width: 12.5rem;
 }
 #main-menu li a {
-  padding-block: 1.75rem;
-  display: block;
+	padding-block: 1.75rem;
+	display: block;
 }
 #main-menu li ul li a {
-  padding: 0.625rem;
-  display: block;
+	padding: 0.625rem;
+	display: block;
 }
 
 #main-menu li:hover > ul {
-  display: block;
+	display: block;
 }
 #main-menu li ul li ul {
-  top: 0;
-  left: 100%;
+	top: 0;
+	left: 100%;
 }
 
 #main-menu li ul li:hover > ul {
-  display: block;
+	display: block;
 }
 
 /*-------mobile-menu---------*/
 #mobile-menu li {
-  position: relative;
+	position: relative;
 }
 
 #mobile-menu li a {
-  display: block;
+	display: block;
 }
 
 #mobile-menu li ul {
-  display: none;
-  position: static; /* یا absolute برای حالت‌های خاص */
+	display: none;
+	position: static; /* یا absolute برای حالت‌های خاص */
 }
 
 #mobile-menu li ul li a {
-  padding: 0.625rem;
+	padding: 0.625rem;
 }
 
 #mobile-menu .sub-menu-toggle {
-  display: none;
-  cursor: pointer;
+	display: none;
+	cursor: pointer;
 }
 
-#mobile-menu i{
-  float: left;
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 1rem;
-  position: absolute;
-  z-index: 0;
-  line-height: 0;
+#mobile-menu i {
+	float: left;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 1rem;
+	position: absolute;
+	z-index: 0;
+	line-height: 0;
 }
 
 #mobile-menu .menu-item-has-children > .sub-menu-toggle {
-  display: block;
+	display: block;
 }
-/*--- instagram-page----*/
-.instagram-page p{
-  margin-bottom:1rem;
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-.instagram-page p a{
-  text-decoration: underline;
-  font-size:1rem;
-}
-@media (max-width:768px){
 
+/*--- instagram-page----*/
+.instagram-page p {
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+.instagram-page p a {
+	text-decoration: underline;
+	font-size: 1rem;
+}
+@media (max-width: 768px) {
 }
 /*-- about-us page---*/
-.about-us-page p{
-    color:#85878C;
-    font-size:1rem;
-    line-height: 2.5rem;
-    font-weight: 400;
-    margin-block-end:1rem;
+.about-us-page p {
+	color: #85878c;
+	font-size: 1rem;
+	line-height: 2.5rem;
+	font-weight: 400;
+	margin-block-end: 1rem;
 }
-.about-us-page h2{
-  font-size:1.5rem;
-  line-height: 2rem;
-  font-weight: 500;
-  color:#333;
-  margin-block-end: 1rem;
+.about-us-page h2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 500;
+	color: #333;
+	margin-block-end: 1rem;
 }
-.about-us-page img,#about-us-page video{
-  margin:2.1rem auto;
-  border-radius: 1.75rem;
+.about-us-page img,
+#about-us-page video {
+	margin: 2.1rem auto;
+	border-radius: 1.75rem;
 }
-.about-us-page blockquote{
-  padding:1.25rem;
-  border:1px solid #C2C2C2;
-  border-radius: 1rem;
+.about-us-page blockquote {
+	padding: 1.25rem;
+	border: 1px solid #c2c2c2;
+	border-radius: 1rem;
 }
-.about-us-page .gallery img{
-  margin:0;
+.about-us-page .gallery img {
+	margin: 0;
+}
+
+/*-------- woocommerce single product -------*/
+@layer components {
+	.woocommerce-product-gallery ol {
+		@apply overflow-auto flex;
+	}
+	.woocommerce-product-gallery ol li {
+		@apply border rounded-2xl overflow-hidden !mr-3 first:!mr-0 min-w-10;
+	}
+
+	.woocommerce div.product p.price,
+	.woocommerce div.product span.price {
+		@apply !text-black;
+	}
+}
+
+/* Buttons */
+@layer components {
+	.primary-btn {
+		@apply py-4 px-6 bg-black shadow-lg rounded-full text-white;
+	}
+
+	.small-btn {
+		@apply py-3 px-6 text-sm;
+	}
+}
+
+@layer components {
+	input[class^='form-'] {
+		@apply text-black;
+	}
+	input[type='range']::-webkit-slider-thumb {
+		@apply bg-current;
+	}
+}
+
+/* Custom Scrollbar */
+@layer components {
+	/* width */
+	.custom-scrollbar::-webkit-scrollbar {
+		@apply w-1;
+	}
+
+	/* Track */
+	.custom-scrollbar::-webkit-scrollbar-track {
+		@apply bg-gray-200 rounded-md;
+	}
+
+	/* Handle */
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		@apply bg-gray-500 rounded-md;
+	}
+
+	/* Handle on hover */
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		@apply bg-gray-500;
+	}
+}
+
+/* Icons */
+@layer components {
+	.icon {
+		@apply size-6 text-inherit inline-block fill-current;
+	}
 }

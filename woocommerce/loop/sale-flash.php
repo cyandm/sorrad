@@ -24,7 +24,38 @@ global $post, $product;
 ?>
 <?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+	<?php
+	$price_percent = 0;
+
+	if ( $product->is_type( 'variable' ) ) {
+
+		$variants = $product->get_available_variations();
+
+		foreach ( $variants as $variant ) {
+			if ( $variant['display_price'] !== $variant['display_regular_price'] ) {
+				$price_percent = round( ( $variant['display_regular_price'] - $variant['display_price'] ) * 100 / $variant['display_regular_price'] );
+				break;
+			}
+		}
+
+
+
+	}
+
+	if ( $product->is_type( 'simple' ) ) {
+		$price_percent = round( $product->get_regular_price() - $product->get_sale_price() ) * 100 / $product->get_regular_price();
+	}
+
+	?>
+
+
+	<?php
+	$html = '<span class="absolute top-0 right-0 py-2 px-6 text-sm max-md:left-0 max-md:right-auto max-md:rounded-tl-2xl max-md:rounded-br-2xl max-md:rounded-tr-none max-md:rounded-bl-none bg-black text-white rounded-tr-2xl rounded-bl-2xl">';
+	$html .= strval( $price_percent ) . '%';
+	$html .= '</span>';
+	?>
+
+	<?php echo apply_filters( 'woocommerce_sale_flash', $html, $post, $product ); ?>
 
 	<?php
 endif;

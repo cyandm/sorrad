@@ -26,13 +26,14 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		}
 
 		public function cyn_post_type_register() {
-			$this->cyn_make_post_type('podcast' , 'پادکست' , 'پادکست ها', 'dashicons-format-audio',$supports = [ 'title', 'thumbnail' , 'editor' , 'excerpt']);
-			$this->cyn_make_post_type('faq' , 'سوالات متداول' , 'سوالات متداول','dashicons-format-quote', $supports = [ 'title', 'thumbnail' , 'editor' , 'excerpt']);
-			$this->cyn_make_post_type('slider' , 'اسلایدر'  , 'اسلایدرها','dashicons-slides', $supports = [ 'title', 'thumbnail' , 'editor']);
+			$this->cyn_make_post_type( 'podcast', 'پادکست', 'پادکست ها', 'dashicons-format-audio', $supports = [ 'title', 'thumbnail', 'editor', 'excerpt' ] );
+			$this->cyn_make_post_type( 'faq', 'سوالات متداول', 'سوالات متداول', 'dashicons-format-quote', $supports = [ 'title', 'thumbnail', 'editor', 'excerpt' ] );
+			$this->cyn_make_post_type( 'slider', 'اسلایدر', 'اسلایدرها', 'dashicons-slides', $supports = [ 'title', 'thumbnail', 'editor' ] );
 		}
 
 		public function cyn_taxonomy_register() {
-			 $this->cyn_make_taxonomy( 'catfaq', 'دسته سوالات ', 'همه دسته ها' , ['faq'] );
+			$this->cyn_make_taxonomy( 'faq-cat', 'دسته سوالات ', 'دسته ها', [ 'faq' ] );
+			$this->cyn_make_taxonomy( 'product_notes', 'نت عطر ', 'نت های عطر', [ 'product' ], );
 		}
 
 		public function cyn_term_register() {
@@ -113,7 +114,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		 * @param boolean $is_hierarchical
 		 * @return void
 		 */
-		private function cyn_make_taxonomy( $slug, $singular_name, $plural_name, $post_types, $is_hierarchical = true ) {
+		private function cyn_make_taxonomy( $slug, $singular_name, $plural_name, $post_types, $is_hierarchical = true, $public = true ) {
 
 			$args = [ 
 				'labels' => [ 
@@ -123,7 +124,7 @@ if ( ! class_exists( 'cyn_register' ) ) {
 					'add_new_item' => 'افزودن ' . $singular_name . 'جدید ',
 				],
 				'hierarchical' => $is_hierarchical,
-				'public' => true,
+				'public' => $public,
 				'show_ui' => true,
 				'show_admin_column' => true,
 				'show_in_nav_menus' => true,

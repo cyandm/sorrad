@@ -2,7 +2,7 @@
 /* Template Name: FAQ */
 get_header();
 
-get_template_part( '/templates/components/faq');
+cyn_get_component( 'home/faq' );
 
 get_footer();
 ?>

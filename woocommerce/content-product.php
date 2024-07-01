@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
+<div <?php wc_product_class( 'rounded-xl shadow-cxl hover:shadow-md transition duration-500 p-6 max-md:p-2', $product ); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
@@ -32,30 +32,46 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_product_link_open - 10
 	 */
 	do_action( 'woocommerce_before_shop_loop_item' );
+	?>
 
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
+	<div class="max-md:max-w-[35%]">
+		<?php wc_get_template( 'loop/image.php' ) ?>
+		<?php
+		/**
+		 * Hook: woocommerce_before_shop_loop_item_title.
+		 *
+		 * @hooked woocommerce_show_product_loop_sale_flash - 10
+		 * @hooked woocommerce_template_loop_product_thumbnail - 10 @remove by cyan
+		 */
+		do_action( 'woocommerce_before_shop_loop_item_title' );
+		?>
+	</div>
 
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
+	<div class="max-md:min-h-full max-md:w-full max-md:flex max-md:flex-col max-md:justify-between">
+		<?php
+		/**
+		 * Hook: woocommerce_shop_loop_item_title.
+		 *
+		 * @hooked woocommerce_template_loop_product_title - 10
+		 */
+		do_action( 'woocommerce_shop_loop_item_title' );
+		?>
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
+		<div class="flex justify-between items-center">
+			<?php
+			/**
+			 * Hook: woocommerce_after_shop_loop_item_title.
+			 *
+			 * @hooked woocommerce_template_loop_rating - 5
+			 * @hooked woocommerce_template_loop_price - 10
+			 * @hooked @cyan-add
+			 */
+			do_action( 'woocommerce_after_shop_loop_item_title' );
+			?>
+		</div>
+	</div>
 
+	<?php
 	/**
 	 * Hook: woocommerce_after_shop_loop_item.
 	 *
@@ -64,4 +80,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
-</li>
+</div>

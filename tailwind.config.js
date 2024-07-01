@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+import { colors } from 'tailwindcss';
 
 module.exports = {
 	content: [
+		'./node_modules/flowbite/**/*.js',
 		'./partials/**/*.php',
 		'./templates/**/*.php',
 		'./assets/js/**/*.js',
@@ -13,48 +15,32 @@ module.exports = {
 			padding: '1rem',
 		},
 		extend: {
-			colors: {
-				primary: '#090909',
-				secondary: '#6C6A6A',
-				cgray: '#F0F0F0',
-				egray: '#EBEBEB',
-				darkborder: '#121212',
-				ctext: '#404040',
-				cgray2: '#333',
-				cgray3: '#666',
-				cgray4: '#4d4d4d',
-				white: '#fff',
-				darkgreen: '#94A0724D',
-				pink: '#F4C0D5',
-				blue: '#BAC5F6',
-				whiteopacity: '#FFFFFFA3',
-				secondtext: '#54585F',
-				'bg-content': '#D1D1D1',
-				'white-24': 'rgba(255, 255, 255, 0.24)',
-			},
 			fontFamily: {
-				peyda: ['Peyda', 'sans-serif'],
+				peyda: ['"Peyda-1" , sans'],
 			},
 			listStyleType: {
 				none: 'none',
 				square: 'square',
 			},
 			fontSize: {
-				title: '4.5rem',
-				title1: '2.5rem',
-				title2: '1.75rem',
-			},
-			backgroundPosition: {
-				right150: '115%',
+				title: '72px',
+				title_1: '40px',
+				title_2: '28px',
+				h1: '48px',
+				h2: '36px',
+				h3: '32px',
+				h4: '28px',
+				h5: '24px',
+				h6: '20px',
+				body: '20px',
+				body_s: '16px',
+				caption: '12px',
 			},
 			boxShadow: {
 				cxl: 'inset 0 0px 9px rgba(0, 0, 0, 0.1)',
 			},
 			borderRadius: {
 				'4xl': '1.75rem',
-			},
-			lineHeight: {
-				424: '4.25rem',
 			},
 			typography: {
 				DEFAULT: {
@@ -65,6 +51,10 @@ module.exports = {
 							width: '100%',
 							aspectRatio: '16/9',
 							objectFit: 'cover',
+						},
+
+						a: {
+							color: '#172EF9',
 						},
 					},
 				},
@@ -78,5 +68,6 @@ module.exports = {
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/aspect-ratio'),
+		require('flowbite/plugin'),
 	],
 };

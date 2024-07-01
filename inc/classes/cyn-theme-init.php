@@ -45,16 +45,22 @@ if ( ! class_exists( 'cyn_theme_init' ) ) {
 
 		public function cyn_enqueue_files() {
 
-			
+
 			$js_path = $this->build ? '/assets/js/dist/scripts.min.js' : '/assets/js/dist/scripts.bundle.js';
 
-			wp_enqueue_style('cyn-tailwind' , get_stylesheet_directory_uri() . '/assets/css/final-tailwind.css');
-			wp_enqueue_style('cyn-swiper' , get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css');
+			wp_enqueue_style( 'cyn-tailwind', get_stylesheet_directory_uri() . '/assets/css/final-tailwind.css' );
+			wp_enqueue_style( 'cyn-swiper', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css' );
 			wp_enqueue_style( 'cyn-style', get_stylesheet_uri() );
 			wp_dequeue_style( 'wp-block-library' );
 
+
 			wp_enqueue_script( 'cyn-theme', get_stylesheet_directory_uri() . $js_path, [ 'jquery' ], $this->ver, true );
+			wp_localize_script( 'cyn-theme', 'restDetails', [ 
+				'url' => rest_url(),
+			] );
 			wp_dequeue_script( 'global-styles' );
+
+
 		}
 
 		public function cyn_admin_files() {
@@ -74,7 +80,10 @@ if ( ! class_exists( 'cyn_theme_init' ) ) {
 			add_theme_support( 'automatic-feed-links' );
 			add_theme_support( 'html5', [ 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ] );
 
-			//add_theme_support( 'woocommerce' );
+			add_theme_support( 'woocommerce' );
+			add_theme_support( 'wc-product-gallery-zoom' );
+			add_theme_support( 'wc-product-gallery-lightbox' );
+			add_theme_support( 'wc-product-gallery-slider' );
 		}
 
 		public function cyn_allow_svg( $data, $file, $filename, $mimes ) {
@@ -97,7 +106,7 @@ if ( ! class_exists( 'cyn_theme_init' ) ) {
 				return CYN_ACF_URL;
 			} );
 			add_filter( 'acf/settings/show_updates', '__return_false', 100 );
-			add_filter( 'acf/settings/show_admin', '__return_false', 100 );
+			// add_filter( 'acf/settings/show_admin', '__return_false', 100 );
 		}
 	}
 }

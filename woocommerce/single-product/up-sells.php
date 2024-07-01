@@ -27,23 +27,26 @@ if ( $upsells ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="text-4xl"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>
 
+		<swiper-container>
+
 			<?php foreach ( $upsells as $upsell ) : ?>
+				<swiper-slide class="p-2">
+					<?php
+					$post_object = get_post( $upsell->get_id() );
 
-				<?php
-				$post_object = get_post( $upsell->get_id() );
-
-				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
-
-				wc_get_template_part( 'content', 'product' );
-				?>
-
+					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+			
+					wc_get_template_part( 'content', 'product' );
+					?>
+				</swiper-slide>
 			<?php endforeach; ?>
 
+		</swiper-container>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</section>

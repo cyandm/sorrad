@@ -1,0 +1,15 @@
+{
+	"name": "cyan/sorrad",
+	"type": "wordpress-theme",
+	"require": {
+		"php": ">=7.4",
+		"composer/installers": "^1.0",
+		"hanifhefaz/dcter": "^1.1"
+	},
+	"config": {
+		"platform-check": false,
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
+}

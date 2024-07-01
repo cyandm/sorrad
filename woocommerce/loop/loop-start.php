@@ -18,5 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+
 ?>
-<ul class="products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
+
+
+<div
+	 class="products <?php echo is_single() ? '' : 'grid gap-4 grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1' ?> ">
