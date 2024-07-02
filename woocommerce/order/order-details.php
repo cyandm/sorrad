@@ -12,10 +12,12 @@
  *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 8.5.0
+ * @version 9.0.0
  *
  * @var bool $show_downloads Controls whether the downloads table should be rendered.
  */
+
+// phpcs:disable WooCommerce.Commenting.CommentHooks.MissingHookComment
 
 defined( 'ABSPATH' ) || exit;
 
@@ -25,16 +27,18 @@ if ( ! $order ) {
 	return;
 }
 
-$order_items           = $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
-$show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
-$show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
-$downloads             = $order->get_downloadable_items();
+$order_items = $order->get_items( apply_filters( 'woocommerce_purchase_order_item_types', 'line_item' ) );
+$show_purchase_note = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
+$downloads = $order->get_downloadable_items();
+
+// We make sure the order belongs to the user. This will also be true if the user is a guest, and the order belongs to a guest (userID === 0).
+$show_customer_details = $order->get_user_id() === get_current_user_id();
 
 if ( $show_downloads ) {
 	wc_get_template(
 		'order/order-downloads.php',
 		array(
-			'downloads'  => $downloads,
+			'downloads' => $downloads,
 			'show_title' => true,
 		)
 	);
@@ -49,8 +53,10 @@ if ( $show_downloads ) {
 
 		<thead>
 			<tr>
-				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+				<th class="woocommerce-table__product-name product-name">
+					<?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
+				<th class="woocommerce-table__product-table product-total">
+					<?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>
 
@@ -64,12 +70,12 @@ if ( $show_downloads ) {
 				wc_get_template(
 					'order/order-details-item.php',
 					array(
-						'order'              => $order,
-						'item_id'            => $item_id,
-						'item'               => $item,
+						'order' => $order,
+						'item_id' => $item_id,
+						'item' => $item,
 						'show_purchase_note' => $show_purchase_note,
-						'purchase_note'      => $product ? $product->get_purchase_note() : '',
-						'product'            => $product,
+						'purchase_note' => $product ? $product->get_purchase_note() : '',
+						'product' => $product,
 					)
 				);
 			}
@@ -82,11 +88,11 @@ if ( $show_downloads ) {
 			<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>
-					<tr>
-						<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
-						<td><?php echo wp_kses_post( $total['value'] ); ?></td>
-					</tr>
-					<?php
+				<tr>
+					<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
+					<td><?php echo wp_kses_post( $total['value'] ); ?></td>
+				</tr>
+				<?php
 			}
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>

@@ -1,7 +1,5 @@
 import './menuslide';
 import './popup';
-import './tabs';
-import './accordion';
 import './mobilemenu';
 import './swiper';
 import './autoSelect';
@@ -11,3 +9,6 @@ import './flowbite';
 import './openTab';
 import './faq-group';
 import './variables';
+import './select-box';
+import './addElement';
+import './search';

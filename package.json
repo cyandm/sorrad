@@ -19,6 +19,7 @@
 		"zip-build": "^1.8.0"
 	},
 	"dependencies": {
+		"amplitudejs": "^5.3.2",
 		"flowbite": "^2.3.0",
 		"gsap": "^3.12.2",
 		"swiper": "^11.0.3"

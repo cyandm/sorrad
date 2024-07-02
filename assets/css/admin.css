@@ -5,4 +5,6 @@
 
 *:not(i, .ab-icon, .dashicons) {
 	font-family: Peyda !important;
+	font-feature-settings: 'ss01' 1;
+	font-variant-ligatures: discretionary-ligatures;
 }

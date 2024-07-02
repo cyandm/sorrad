@@ -50,8 +50,11 @@ if ( empty( $title ) || empty( $description ) || empty( $products ) || empty( $l
 			</div>
 
 			<a href="#"
-			   class="block lg:hidden  order-3 lg:order-2 mt-4 mb-6 text-center lg:text-right">مشاهده عطرها<i
-				   class="mr-2"></i></a>
+			   class="block lg:hidden  order-3 lg:order-2 mt-4 mb-6 text-center lg:text-right">مشاهده عطرها
+				<svg class="icon -rotate-90 transition-all group-hover:-translate-x-2">
+					<use href="#icon-Arrow,-Up-1" />
+				</svg>
+			</a>
 		</div>
 	</div>
 </section>

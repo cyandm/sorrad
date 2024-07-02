@@ -66,35 +66,6 @@
   }
   filterOpening();
 
-  // assets/js/modules/tabs.js
-  jQuery(document).ready(function($) {
-    $(".tab").click(function() {
-      var tabId = $(this).data("tab");
-      $(".tab, .tab-content").removeClass("active");
-      $(this).addClass("active");
-      $("#" + tabId).addClass("active");
-    });
-  });
-
-  // assets/js/modules/accordion.js
-  jQuery(document).ready(function($) {
-    $(".accordion-title").click(function() {
-      $(".accordion-title").removeClass("active");
-      $(this).addClass("active");
-      $(".accordion-content").not($(this).next(".accordion-content")).slideUp();
-      $(this).next(".accordion-content").slideToggle();
-      $(".accordion-title .ico").not($icon).removeClass("icon-close").addClass("icon-plus");
-      var $icon = $(this).find(".ico");
-      if ($icon.hasClass("icon-plus")) {
-        $icon.removeClass("icon-plus");
-        $icon.addClass("icon-close");
-      } else {
-        $icon.removeClass("icon-close");
-        $icon.addClass("icon-plus");
-      }
-    });
-  });
-
   // assets/js/modules/mobilemenu.js
   jQuery(document).ready(function($) {
     $("#mobile-menu .menu-item-has-children").each(function() {
@@ -14753,6 +14724,69 @@
     headerEl && setVariable(htmlEl, headerEl.offsetHeight, "--header-height");
   }
   setVariables();
+
+  // assets/js/modules/select-box.js
+  function selectBox() {
+    const selectBoxGroup = document.querySelectorAll(".select-box");
+    if (!selectBoxGroup)
+      return;
+    function toggleActivatePanel(panel, icon, selector) {
+      panel.classList.toggle("opacity-0");
+      panel.classList.toggle("-translate-y-4");
+      panel.classList.toggle("pointer-events-none");
+      icon.classList.toggle("rotate-180");
+      icon.classList.toggle("text-accent-40");
+      selector.classList.contains("border-accent-40") ? selector.classList.replace("border-accent-40", "border-primary-70") : selector.classList.replace("border-primary-70", "border-accent-40");
+    }
+    selectBoxGroup.forEach((selectBox2) => {
+      const selector = selectBox2.querySelector(".select-box-selector");
+      const panel = selectBox2.querySelector(".select-box-panel");
+      const value = selectBox2.querySelector(".select-box-value");
+      const options = selectBox2.querySelectorAll(".select-box-option");
+      const icon = selectBox2.querySelector("svg");
+      selector.addEventListener("click", () => {
+        toggleActivatePanel(panel, icon, selector);
+      });
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          value.innerText = option.innerText;
+          toggleActivatePanel(panel, icon, selector);
+        });
+      });
+    });
+  }
+  selectBox();
+
+  // assets/js/modules/addElement.js
+  function addDeleteButton() {
+    const removeLink = document.querySelectorAll(
+      ".wc-block-cart-item__remove-link"
+    );
+    if (!removeLink)
+      return;
+    removeLink.forEach((e) => {
+      const svg = document.getElementById("trashIcon").cloneNode(true);
+      svg.classList.remove("hidden");
+      e.appendChild(svg);
+    });
+  }
+  setTimeout(() => {
+    addDeleteButton();
+  }, 1e3);
+
+  // assets/js/modules/search.js
+  function searchPage() {
+    var _a;
+    const searchForm = document.querySelector("form#search-form");
+    if (!searchForm)
+      return;
+    (_a = searchForm.querySelectorAll("input")) == null ? void 0 : _a.forEach((el) => {
+      el.addEventListener("change", () => {
+        searchForm.submit();
+      });
+    });
+  }
+  searchPage();
 
   // assets/js/ajax/price.js
   function getWcPrice() {

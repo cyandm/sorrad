@@ -39,7 +39,7 @@ $faq_cats = get_terms( [
 			<div class="select-box relative">
 
 				<div
-					 class="select-box-selector | rounded-full pl-3 pr-4 py-2 border bg-black border-primary-70 flex justify-between items-center">
+					 class="select-box-selector | rounded-full pl-3 pr-4 py-2 border bg-white border-primary-70 flex justify-between items-center">
 
 					<span class="select-box-value">
 						<?php echo $faq_cats[0]->name ?>
@@ -51,7 +51,7 @@ $faq_cats = get_terms( [
 				</div>
 
 				<div
-					 class="select-box-panel | bg-black px-4 rounded-xl divide-y divide-primary-90  shadow-md absolute top-12 w-full z-50 opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
+					 class="select-box-panel | bg-white px-4 rounded-xl divide-y divide-primary-90  shadow-md absolute top-12 w-full z-50 opacity-0 -translate-y-4 pointer-events-none transition-all duration-300">
 
 					<?php foreach ( $faq_cats as $index => $category ) : ?>
 						<div id="<?php echo "faq-cat-" . $category->term_id ?>"
