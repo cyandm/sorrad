@@ -134,45 +134,7 @@ $btn_link_instagram = get_option( 'btn_link_instagram' );
 				<span>Design & Develope by <a href="https://cyandm.com">Cyan DM</a></span>
 			</div>
 		</div>
-		<div
-			 class="block md:hidden fixed left-0 right-0 bottom-4 z-40 bg-white w-11/12 mx-auto rounded-2xl border shadow-2xl">
-			<ul class="flex justify-around m-3 [&_svg]:text-black ">
-
-				<li>
-					<a class="shadow-md rounded-3xl block bg-white w-10 h-10 text-center leading-10"
-					   href="#">
-						<svg class="icon">
-							<use href="#icon-Shopping-Cart" />
-						</svg>
-					</a>
-				</li>
-				<li>
-					<a class="shadow-md rounded-3xl block bg-white w-10 h-10 text-center leading-10"
-					   href="#">
-						<svg class="icon">
-							<use href="#icon-store-mobile-11" />
-						</svg>
-					</a>
-				</li>
-				<li>
-					<a class="shadow-md rounded-3xl block bg-white w-10 h-10 text-center leading-10"
-					   href="#">
-						<svg class="icon">
-							<use href="#icon-Search" />
-						</svg>
-					</a>
-				</li>
-
-				<li>
-					<a class="shadow-md rounded-3xl block bg-white w-10 h-10 text-center leading-10"
-					   href="#">
-						<svg class="icon">
-							<use href="#icon-User,-Profile" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<?php cyn_get_component( 'bottom-app-bar' ) ?>
 	</footer>
 
 <?php endif; ?>

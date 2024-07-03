@@ -188,47 +188,6 @@
 	display: block;
 }
 
-/*--- instagram-page----*/
-.instagram-page p {
-	margin-bottom: 1rem;
-	font-size: 1.25rem;
-	font-weight: 300;
-}
-.instagram-page p a {
-	text-decoration: underline;
-	font-size: 1rem;
-}
-@media (max-width: 768px) {
-}
-/*-- about-us page---*/
-.about-us-page p {
-	color: #85878c;
-	font-size: 1rem;
-	line-height: 2.5rem;
-	font-weight: 400;
-	margin-block-end: 1rem;
-}
-.about-us-page h2 {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	font-weight: 500;
-	color: #333;
-	margin-block-end: 1rem;
-}
-.about-us-page img,
-#about-us-page video {
-	margin: 2.1rem auto;
-	border-radius: 1.75rem;
-}
-.about-us-page blockquote {
-	padding: 1.25rem;
-	border: 1px solid #c2c2c2;
-	border-radius: 1rem;
-}
-.about-us-page .gallery img {
-	margin: 0;
-}
-
 /*-------- woocommerce single product -------*/
 @layer components {
 	.woocommerce-product-gallery ol {
@@ -318,4 +277,52 @@
 
 .wp-block-woocommerce-empty-cart-block {
 	@apply flex flex-col justify-center items-center gap-2 py-8;
+}
+
+/*my account*/
+
+.order-completed {
+	@apply bg-green-300 text-green-950;
+}
+
+.order-processing {
+	@apply bg-blue-300 text-blue-950;
+}
+
+.order-on-hold {
+	@apply bg-yellow-300 text-yellow-950;
+}
+
+.order-cancelled,
+.order-refunded,
+.order-failed {
+	@apply bg-red-300 text-red-950;
+}
+
+/* forms */
+.woocommerce form .form-row {
+	@apply !p-0 !m-0;
+}
+
+.select2-selection__arrow {
+	@apply !left-2 !top-2;
+}
+
+.select2-search__field {
+	@apply rounded-lg;
+}
+
+.select2-container--default
+	.select2-results__option--highlighted[aria-selected],
+.select2-container--default
+	.select2-results__option--highlighted[data-selected] {
+	@apply bg-blue-600;
+}
+
+.woocommerce-privacy-policy-text p {
+	@apply text-sm text-gray-700;
+}
+
+.woocommerce-privacy-policy-text a {
+	@apply underline text-blue-600;
 }

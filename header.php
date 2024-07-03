@@ -66,7 +66,11 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 							</a>
 
 							<a href="<?= wc_get_cart_url() ?>"
-							   class="hidden xl:block shadow-md rounded-3xl text-primary bg-white bg-opacity-16 w-10 h-10 text-center leading-10">
+							   class="hidden xl:block shadow-md rounded-3xl text-primary bg-white bg-opacity-16 w-10 h-10 text-center leading-10 relative">
+								<div
+									 class="absolute bg-red-600 text-white -top-1 -right-1 size-4 rounded-full flex items-center justify-center text-xs">
+									<?php echo WC()->cart->get_cart_contents_count() ?>
+								</div>
 								<svg class="icon">
 									<use href="#icon-Shopping-Cart" />
 								</svg>

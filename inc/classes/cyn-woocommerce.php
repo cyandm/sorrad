@@ -14,6 +14,8 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			add_action( 'woocommerce_product_loop_title_classes', [ $this, 'card_class' ] );
 			add_filter( 'woocommerce_variable_price_html', [ $this, 'change_price_variable' ], 10, 2 );
 			add_action( 'woocommerce_before_shop_loop_item', [ $this, 'cyn_template_loop_product_link_open' ], 5 );
+			add_filter( 'woocommerce_account_menu_items', [ $this, 'customize_dashboard_nav' ], 10, 2 );
+			add_filter( 'woocommerce_account_orders_columns', [ $this, 'add_column_to_order' ], 10, 1 );
 
 			add_action( 'cyn_title', 'woocommerce_template_single_title', 5 );
 
@@ -156,6 +158,55 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			echo '<a href="' . esc_url( $link ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link max-md:flex max-md:flex-row-reverse max-md:justify-between max-md:gap-2">';
 		}
 
+
+		function customize_dashboard_nav( $items, $endpoints ) {
+			unset( $items['downloads'] );
+
+			$new_items = [];
+
+			foreach ( $items as $key => $label ) {
+				$new_item = [ 
+					'endpoint' => $key,
+					'label' => $label,
+					'icon' => '',
+				];
+
+				if ( $key === 'dashboard' ) {
+					$new_item['icon'] = '#icon-User,-Profile';
+				}
+
+				if ( $key === 'orders' ) {
+					$new_item['icon'] = '#icon-store-mobile-11';
+				}
+
+				if ( $key === 'edit-address' ) {
+					$new_item['icon'] = '#icon-Pin,-Location-1';
+				}
+
+				if ( $key === 'edit-account' ) {
+					$new_item['icon'] = '#icon-Pen,-Edit,-Write';
+				}
+
+				if ( $key === 'customer-logout' ) {
+					$new_item['icon'] = '#icon-Sign-Out,-Right';
+				}
+
+
+
+				array_push( $new_items, $new_item );
+			}
+
+			return $new_items;
+
+		}
+
+		function add_column_to_order( $columns ) {
+
+			$insert = [ 'order-count' => __( 'تعداد محصولات', 'cyn-dm' ) ];
+			$columns = array_merge( array_slice( $columns, 0, 4 ), $insert, array_slice( $columns, 4 ) );
+
+			return $columns;
+		}
 
 
 	}
