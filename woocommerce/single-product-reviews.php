@@ -24,7 +24,8 @@ if ( ! comments_open() ) {
 }
 
 ?>
-<div id="reviews" class="woocommerce-Reviews">
+<div id="reviews"
+	 class="woocommerce-Reviews">
 	<div id="comments">
 		<h2 class="woocommerce-Reviews-title">
 			<?php
@@ -53,7 +54,7 @@ if ( ! comments_open() ) {
 						array(
 							'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
 							'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-							'type'      => 'list',
+							'type' => 'list',
 						)
 					)
 				);
@@ -69,32 +70,32 @@ if ( ! comments_open() ) {
 		<div id="review_form_wrapper">
 			<div id="review_form">
 				<?php
-				$commenter    = wp_get_current_commenter();
+				$commenter = wp_get_current_commenter();
 				$comment_form = array(
 					/* translators: %s is product title */
-					'title_reply'         => have_comments() ? esc_html__( 'Add a review', 'woocommerce' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'woocommerce' ), get_the_title() ),
+					'title_reply' => have_comments() ? esc_html__( 'Add a review', 'woocommerce' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'woocommerce' ), get_the_title() ),
 					/* translators: %s is product title */
-					'title_reply_to'      => esc_html__( 'Leave a Reply to %s', 'woocommerce' ),
-					'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',
-					'title_reply_after'   => '</span>',
+					'title_reply_to' => esc_html__( 'Leave a Reply to %s', 'woocommerce' ),
+					'title_reply_before' => '<span id="reply-title" class="comment-reply-title">',
+					'title_reply_after' => '</span>',
 					'comment_notes_after' => '',
-					'label_submit'        => esc_html__( 'Submit', 'woocommerce' ),
-					'logged_in_as'        => '',
-					'comment_field'       => '',
+					'label_submit' => esc_html__( 'Submit', 'woocommerce' ),
+					'logged_in_as' => '',
+					'comment_field' => '',
 				);
 
 				$name_email_required = (bool) get_option( 'require_name_email', 1 );
-				$fields              = array(
+				$fields = array(
 					'author' => array(
-						'label'    => __( 'Name', 'woocommerce' ),
-						'type'     => 'text',
-						'value'    => $commenter['comment_author'],
+						'label' => __( 'Name', 'woocommerce' ),
+						'type' => 'text',
+						'value' => $commenter['comment_author'],
 						'required' => $name_email_required,
 					),
-					'email'  => array(
-						'label'    => __( 'Email', 'woocommerce' ),
-						'type'     => 'email',
-						'value'    => $commenter['comment_author_email'],
+					'email' => array(
+						'label' => __( 'Email', 'woocommerce' ),
+						'type' => 'email',
+						'value' => $commenter['comment_author_email'],
 						'required' => $name_email_required,
 					),
 				);
@@ -102,7 +103,7 @@ if ( ! comments_open() ) {
 				$comment_form['fields'] = array();
 
 				foreach ( $fields as $key => $field ) {
-					$field_html  = '<p class="comment-form-' . esc_attr( $key ) . '">';
+					$field_html = '<p class="comment-form-' . esc_attr( $key ) . '">';
 					$field_html .= '<label for="' . esc_attr( $key ) . '">' . esc_html( $field['label'] );
 
 					if ( $field['required'] ) {
@@ -138,7 +139,9 @@ if ( ! comments_open() ) {
 			</div>
 		</div>
 	<?php else : ?>
-		<p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
+		<p class="woocommerce-verification-required">
+			<?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?>
+		</p>
 	<?php endif; ?>
 
 	<div class="clear"></div>

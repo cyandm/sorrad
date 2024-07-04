@@ -12,31 +12,8 @@ function cyn_register_acf() {
 	cyn_register_acf_slider();
 	cyn_register_acf_home_page();
 	cyn_register_acf_podcast();
+	cyn_register_acf_posts();
 }
-
-// function cyn_register_acf_company_settings() {
-
-// 	//فیلدهای صفحه درباره ما
-// 	$field_home = [ 
-// 		cyn_acf_add_text( 'about_title_top', 'متن عنوان بالا' ),
-// 		cyn_acf_add_text( 'about_title_bottom', 'متن زیر عنوان صفحه' ),
-// 		cyn_acf_add_image( 'gallery_img_one', 'تصویر بزرگ سمت چپ' ),
-// 		cyn_acf_add_image( 'gallery_img_two', 'تصویر بالا سمت راست' ),
-// 		cyn_acf_add_image( 'gallery_img_three', 'تصویر پایین سمت راست' ),
-// 	];
-// 	$location_home = [ 
-// 		[ 
-// 			[ 
-// 				'param' => 'page_template',
-// 				'operator' => '==',
-// 				'value' => 'templates/about-template.php',
-// 			],
-// 		],
-// 	];
-
-// 	cyn_register_acf_group( 'گالری تصاویر', $field_home, $location_home );
-
-// }
 
 function cyn_register_acf_product_settings() {
 	$fields = [ 
@@ -178,6 +155,24 @@ function cyn_register_acf_podcast() {
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'podcast',
+			],
+		],
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+}
+
+function cyn_register_acf_posts() {
+	$fields = [ 
+		cyn_acf_add_post_object( 'faq_post', 'سوالات متداول', 'faq', '', 1 ),
+	];
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
 			],
 		],
 	];

@@ -1,12 +1,11 @@
 <a href="<?php the_permalink() ?>"
    class="rounded-none md:rounded-3xl overflow-hidden relative flex my-2 md:my-0 border-b  md:border-b-0 pb-5 md:pb-0 items-center isolate">
-	<div class="flex flex-row-reverse">
-		<?php
-		if ( has_post_thumbnail() ) :
-			the_post_thumbnail( 'full', [ 'class' => 'rounded-lg md:rounded-none md:size-full size-28 object-cover' ] );
-		endif;
-		?>
-
+	<div class="flex flex-row-reverse md:block h-full">
+		<div class="md:size-full min-w-28 min-h-60">
+			<?php
+			the_post_thumbnail( [ 600, 600 ], [ 'class' => 'rounded-lg md:rounded-none md:size-full size-28 object-cover' ] );
+			?>
+		</div>
 		<div
 			 class="px-3 py-0 md:py-6 bg-white/65 relative md:absolute md:bottom-0 md:right-0 md:left-0 backdrop-blur-xl flex flex-col justify-between">
 			<div>

@@ -76,7 +76,7 @@ if ( ! class_exists( 'cyn_filters' ) ) {
 
 		function display_submit_button() {
 
-			$button = '<button class="primary-btn px-4 py-2 text-md">';
+			$button = '<button class="primary-btn px-4 py-2 text-md max-md:w-full">';
 			$button .= 'اعمال فیلترها';
 			$button .= '</button>';
 

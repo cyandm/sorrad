@@ -1,14 +1,16 @@
 {
-	"name": "Project Name",
-	"version": "0.0.0",
+	"name": "Sorrad",
+	"version": "1.0.0",
 	"description": "",
 	"author": "cyan-dm",
 	"scripts": {
-		"install-pkg": "npm i sass postcss postcss-cli autoprefixer esbuild -g",
-		"recommend-pkg": "npm i gsap swiper",
+		"init": "npm i gsap swiper esbuild && npm install -D tailwindcss && npx tailwindcss init",
 		"w-tailwind": "npx tailwindcss -i ./assets/css/base-tailwind.css -o ./assets/css/final-tailwind.css --watch",
 		"w-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --watch",
-		"build-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.min.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --minify --sourcemap"
+		"watch": "npm run w-tailwind && npm run w-js",
+		"b-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.min.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --minify --sourcemap",
+		"b-tailwind": "npx tailwindcss -i ./assets/css/base-tailwind.css -o ./assets/css/build-tailwind.css --minify",
+		"build": "npm run b-js && npm run b-tailwind"
 	},
 	"license": "ISC",
 	"devDependencies": {

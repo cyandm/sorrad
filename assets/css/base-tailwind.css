@@ -206,12 +206,16 @@
 /* Buttons */
 @layer components {
 	.primary-btn {
-		@apply py-4 px-6 bg-black shadow-lg rounded-full text-white;
+		@apply py-4 px-6 bg-black shadow-lg rounded-full text-white cursor-pointer;
 	}
 
 	.small-btn {
 		@apply py-3 px-6 text-sm;
 	}
+}
+
+input[type='submit'] {
+	@apply cursor-pointer;
 }
 
 @layer components {
@@ -264,7 +268,7 @@
 }
 
 .wc-block-cart-item__remove-link {
-	@apply !text-red-700 !flex !flex-row-reverse !no-underline !border !rounded-md !border-solid !px-2 !py-1 !justify-center !items-center !border-red-700;
+	@apply !bg-rose-600 !text-white !flex !flex-row-reverse !no-underline !border !rounded-md !border-solid !px-2 !py-1 !justify-center !items-center;
 }
 
 .wc-block-components-quantity-selector {
@@ -325,4 +329,11 @@
 
 .woocommerce-privacy-policy-text a {
 	@apply underline text-blue-600;
+}
+
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
+	@apply !w-full !float-none;
 }

@@ -46,7 +46,7 @@ do_action( 'woocommerce_before_main_content' ); ?>
 
 <div class="py-5"></div>
 
-<div class="flex max-md:flex-col gap-4">
+<div class="flex max-lg:flex-col gap-4">
 
 	<div class="w-96 max-lg:hidden">
 		<?php

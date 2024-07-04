@@ -50,7 +50,7 @@ global $post, $product;
 
 
 	<?php
-	$html = '<span class="absolute top-0 right-0 py-2 px-6 text-sm max-md:left-0 max-md:right-auto max-md:rounded-tl-2xl max-md:rounded-br-2xl max-md:rounded-tr-none max-md:rounded-bl-none bg-black text-white rounded-tr-2xl rounded-bl-2xl">';
+	$html = '<span class="absolute top-2 left-2 py-1 px-3 text-sm rounded-lg bg-rose-500 text-white">';
 	$html .= strval( $price_percent ) . '%';
 	$html .= '</span>';
 	?>

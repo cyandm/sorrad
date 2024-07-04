@@ -8,7 +8,8 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes() ?>>
+<html <?php language_attributes() ?>
+	  class="scroll-smooth">
 
 	<head>
 		<meta charset="UTF-8">
@@ -68,7 +69,7 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 							<a href="<?= wc_get_cart_url() ?>"
 							   class="hidden xl:block shadow-md rounded-3xl text-primary bg-white bg-opacity-16 w-10 h-10 text-center leading-10 relative">
 								<div
-									 class="absolute bg-red-600 text-white -top-1 -right-1 size-4 rounded-full flex items-center justify-center text-xs">
+									 class="absolute bg-rose-500 text-white -top-1 -right-1 size-4 rounded-full flex items-center justify-center text-xs">
 									<?php echo WC()->cart->get_cart_contents_count() ?>
 								</div>
 								<svg class="icon">

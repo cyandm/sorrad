@@ -89,7 +89,7 @@ if ( post_password_required() ) {
 			 *
 			 * @hooked woocommerce_template_single_title - 5 @removed by CYAN
 			 * @hooked cyn-woocommerce->woocommerce_template_table - 6 @added by CYAN
-			 * @hooked woocommerce_template_single_rating - 10
+			 * @hooked woocommerce_template_single_rating - 10 @removed by CYAN
 			 * @hooked woocommerce_template_single_price - 10 @removed by CYAN
 			 * @hooked woocommerce_template_single_excerpt - 20 @removed by CYAN
 			 * @hooked woocommerce_template_single_add_to_cart - 30
@@ -112,6 +112,7 @@ if ( post_password_required() ) {
 		<?php wc_get_template( 'single-product/short-description.php' ) ?>
 	</div>
 
+
 	<?php
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
@@ -122,6 +123,10 @@ if ( post_password_required() ) {
 	 */
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
+
+	<?php //call_user_func( 'comments_template' ) ?>
+
 </div>
+
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

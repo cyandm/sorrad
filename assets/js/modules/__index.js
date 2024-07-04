@@ -12,3 +12,6 @@ import './variables';
 import './select-box';
 import './addElement';
 import './search';
+import './comments';
+import './breadcrumb';
+import './table-of-content';

@@ -138,12 +138,9 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	<p class="flex justify-end">
 		<?php wp_nonce_field( 'save_account_details', 'save-account-details-nonce' ); ?>
 		<button type="submit"
-				class="primary-btn small-btn "
+				class="primary-btn small-btn max-md:w-full"
 				name="save_account_details"
 				value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>">
-			<svg class="icon rotate-90">
-				<use href="#icon-Arrow,-Up-1" />
-			</svg>
 			<?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
 		<input type="hidden"
 			   name="action"

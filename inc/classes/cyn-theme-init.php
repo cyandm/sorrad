@@ -46,15 +46,16 @@ if ( ! class_exists( 'cyn_theme_init' ) ) {
 		public function cyn_enqueue_files() {
 
 
-			$js_path = $this->build ? '/assets/js/dist/scripts.min.js' : '/assets/js/dist/scripts.bundle.js';
+			$js_path = $this->build ? '/assets/js/dist/scripts.bundle.min.js' : '/assets/js/dist/scripts.bundle.js';
+			$css_path = $this->build ? '/assets/css/build-tailwind.css' : '/assets/css/final-tailwind.css';
 
-			wp_enqueue_style( 'cyn-tailwind', get_stylesheet_directory_uri() . '/assets/css/final-tailwind.css' );
-			wp_enqueue_style( 'cyn-swiper', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css' );
+			wp_enqueue_style( 'cyn-tailwind', CYN_THEME_URI . $css_path );
+			wp_enqueue_style( 'cyn-swiper', CYN_THEME_URI . '/assets/css/swiper-bundle.min.css' );
 			wp_enqueue_style( 'cyn-style', get_stylesheet_uri() );
 			// wp_dequeue_style( 'wp-block-library' );
 
 
-			wp_enqueue_script( 'cyn-theme', get_stylesheet_directory_uri() . $js_path, [ 'jquery' ], $this->ver, true );
+			wp_enqueue_script( 'cyn-theme', CYN_THEME_URI . $js_path, [ 'jquery' ], $this->ver, true );
 			wp_localize_script( 'cyn-theme', 'restDetails', [ 
 				'url' => rest_url(),
 			] );

@@ -14788,6 +14788,54 @@
   }
   searchPage();
 
+  // assets/js/modules/comments.js
+  function commentReply() {
+    const replyButtons = document.querySelectorAll(".reply-comment");
+    const commentFormParent = document.querySelector(
+      "#commentform #comment_parent"
+    );
+    if (!commentFormParent || !replyButtons)
+      return;
+    replyButtons.forEach((element) => {
+      element.addEventListener("click", () => {
+        commentFormParent.value = element.getAttribute("comment-id");
+      });
+    });
+  }
+  commentReply();
+
+  // assets/js/modules/breadcrumb.js
+  var separator = document.querySelectorAll(".separator");
+  separator == null ? void 0 : separator.forEach((el) => {
+    el.innerHTML = '<svg class="icon size-4 rotate-90"><use href="#icon-chevron-down"/></svg>';
+  });
+
+  // assets/js/modules/table-of-content.js
+  document.addEventListener("DOMContentLoaded", function() {
+    const tocGroup = document.querySelectorAll(".toc");
+    const prose = document.querySelector(".prose");
+    const headings = prose == null ? void 0 : prose.querySelectorAll("h2");
+    const icon = document.querySelector(".separator svg");
+    if (!tocGroup || !prose || !headings || !icon)
+      return;
+    headings.forEach(function(heading, index) {
+      const id = "section-" + index;
+      heading.setAttribute("id", id);
+      const li = document.createElement("li");
+      li.classList.add("flex", "flex-row-reverse", "justify-between", "p-1");
+      const a = document.createElement("a");
+      const svg = icon.cloneNode(true);
+      a.textContent = heading.textContent;
+      a.setAttribute("href", "#" + id);
+      li.appendChild(svg);
+      li.appendChild(a);
+      tocGroup.forEach((toc) => {
+        const liClone = li.cloneNode(true);
+        toc.appendChild(liClone);
+      });
+    });
+  });
+
   // assets/js/ajax/price.js
   function getWcPrice() {
     const maxPrice = document.querySelector('input[type="range"]#maxPrice');

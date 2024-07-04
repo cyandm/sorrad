@@ -20,16 +20,18 @@ require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-ajax.php' );
 require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-mp3.php' );
 require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-persian.php' );
 require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-search.php' );
+require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-rankmath.php' );
 
 
 //instance classes
-new cyn_theme_init( false, '0.0.0' );
+new cyn_theme_init( false, '1.0.0' );
 new cyn_register();
 new cyn_customize();
 new cyn_filters();
 new cyn_ajax();
 new cyn_persian();
 new cyn_search();
+new cyn_rankmath();
 $cyn_woocommerce = new cyn_woocommerce();
 
 

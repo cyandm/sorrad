@@ -56,6 +56,10 @@ module.exports = {
 						a: {
 							color: '#172EF9',
 						},
+
+						h1: {
+							fontSize: '48px',
+						},
 					},
 				},
 			},
