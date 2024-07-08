@@ -29,7 +29,7 @@ $notes = [
 <div class="space-y-3 max-md:space-y-12">
 	<?php foreach ( $notes as $note ) :
 
-		if ( $note['fields'] === null )
+		if ( empty( $note['fields'] ) )
 			continue;
 
 		?>

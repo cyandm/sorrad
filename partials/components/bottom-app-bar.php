@@ -1,4 +1,5 @@
-<div class="block md:hidden fixed left-0 right-0 bottom-4 z-40 bg-white w-11/12 mx-auto rounded-2xl border shadow-2xl">
+<div
+	 class="block md:hidden fixed left-0 right-0 bottom-4 z-40 bg-gray-100 w-11/12 mx-auto rounded-2xl border shadow-2xl">
 	<ul class="flex justify-around m-3 [&_svg]:text-black ">
 
 		<li class="relative">

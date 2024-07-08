@@ -18,6 +18,12 @@
 defined( 'ABSPATH' ) || exit;
 
 global $product;
+$terms = get_the_terms( $product->get_id(), 'product_cat' );
+$perfume_cat = get_term_by( 'slug', 'perfume', 'product_cat' );
+
+$is_perfume = in_array( $perfume_cat, $terms );
+
+
 
 /**
  * Hook: woocommerce_before_single_product.
@@ -54,9 +60,11 @@ if ( post_password_required() ) {
 		<div class="image space-y-2 col-span-1">
 
 
-			<div class="p-5 border rounded-2xl max-lg:text-sm max-md:text-xs">
-				<?php _e( 'تمامی عطر ها "ساخت اختصاصی" برند سراد هستند. ', 'cyn-dm' ) ?>
-			</div>
+			<?php if ( $is_perfume ) : ?>
+				<div class="p-5 border rounded-2xl max-lg:text-sm max-md:text-xs">
+					<?php _e( 'تمامی عطر ها "ساخت اختصاصی" برند سراد هستند. ', 'cyn-dm' ) ?>
+				</div>
+			<?php endif; ?>
 
 			<?php
 			/**
@@ -103,9 +111,11 @@ if ( post_password_required() ) {
 
 	</div>
 
-	<div>
-		<?php wc_get_template( 'single-product/notes.php' ) ?>
-	</div>
+	<?php if ( $is_perfume ) : ?>
+		<div>
+			<?php wc_get_template( 'single-product/notes.php' ) ?>
+		</div>
+	<?php endif; ?>
 
 
 	<div>

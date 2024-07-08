@@ -138,7 +138,16 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 					$class .= ' mr-1';
 				}
 
-				echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse $class ?>\"> <span class=\"max-md:hidden \">  </span> <span>$svg</span> </div>";
+				if ( $name !== 'یونیسکس' ) {
+					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse $class ?>\"> <span class=\"max-md:hidden \">  </span> <span>$svg</span> </div>";
+				} else {
+					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse bg-sky-200 text-sky-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span> " .
+						file_get_contents( CYN_THEME_DIRECTORY . '/assets/svg/men.svg' ) . " </span> </div>";
+
+					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse bg-rose-200 text-rose-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span>" .
+						file_get_contents( CYN_THEME_DIRECTORY . '/assets/svg/women.svg' ) . "</span> </div>";
+				}
+
 			endforeach;
 
 			echo '</div>';

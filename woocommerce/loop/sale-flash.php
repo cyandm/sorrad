@@ -60,4 +60,8 @@ global $post, $product;
 	<?php
 endif;
 
+if ( ! $product->is_in_stock() ) {
+	echo '<span class="absolute top-2 left-2 py-1 px-3 text-sm rounded-lg bg-rose-500 text-white">ناموجود</span>';
+}
+
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

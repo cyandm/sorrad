@@ -23,8 +23,11 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
 ?>
-<div <?php wc_product_class( 'rounded-xl shadow-cxl hover:shadow-md transition duration-500 p-6 max-md:p-2', $product ); ?>>
+
+
+<div <?php wc_product_class( sprintf( 'rounded-xl shadow-cxl hover:shadow-md transition duration-500 p-6 max-md:p-2 %s', $product->is_in_stock() ? '' : 'grayscale' ), $product ); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
