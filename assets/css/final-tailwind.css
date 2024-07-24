@@ -3357,6 +3357,11 @@ input[type='range']::-webkit-slider-thumb {
   height: 1.25rem;
 }
 
+.size-3 {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
 .h-1 {
   height: 0.25rem;
 }
@@ -4117,6 +4122,11 @@ input[type='range']::-webkit-slider-thumb {
 
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
+}
+
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .bg-none {
@@ -5935,6 +5945,11 @@ input[type='submit'] {
     background-color: rgb(255 255 255 / 0.2);
   }
 
+  .lg\:bg-gray-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+
   .lg\:bg-none {
     background-image: none;
   }
@@ -6048,6 +6063,10 @@ input[type='submit'] {
   --tw-translate-x: -100%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.\[\&\>a\]\:underline>a {
+  text-decoration-line: underline;
 }
 
 .\[\&_\*\]\:min-w-max * {

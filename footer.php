@@ -11,6 +11,8 @@ $footer_hours = get_option( 'footer_hours' );
 $btn_link_whatsapp = get_option( 'btn_link_whatsapp' );
 $btn_link_phones = get_option( 'btn_link_phones' );
 $btn_link_instagram = get_option( 'btn_link_instagram' );
+
+$enamad = get_option( 'enamad' );
 ?>
 
 <?php if ( $render_template ) : ?>
@@ -22,17 +24,17 @@ $btn_link_instagram = get_option( 'btn_link_instagram' );
 						 src="<?= get_stylesheet_directory_uri() . '/assets/img/car.svg'; ?>"
 						 alt="Car Icon" />
 					<div>
-						<h3 class="text-lg font-bold">ارسال رایگان</h3>
-						<p class="text-sm">خرید بالای ۷۰۰ هزار تومن</p>
+						<h3 class="text-lg font-bold">ارسال سریع</h3>
+						<p class="text-sm">ارسال سفارشات در سریع ترین زمان </p>
 					</div>
 				</div>
 				<div class="flex items-center">
 					<img class="ml-4 w-16 h-16"
-						 src="<?= get_stylesheet_directory_uri() . '/assets/img/earth.svg'; ?>"
+						 src="<?= get_stylesheet_directory_uri() . '/assets/img/secure-payment.png'; ?>"
 						 alt="Earth Icon" />
 					<div>
-						<h3 class="text-lg font-bold">ارسال ویژه</h3>
-						<p class="text-sm">مختص شهر تهران</p>
+						<h3 class="text-lg font-bold">خرید امن </h3>
+						<p class="text-sm">سرویس پرداخت ایمن</p>
 					</div>
 				</div>
 				<div class="flex items-center">
@@ -40,17 +42,17 @@ $btn_link_instagram = get_option( 'btn_link_instagram' );
 						 src="<?= get_stylesheet_directory_uri() . '/assets/img/click-mobile.svg'; ?>"
 						 alt="Click Mobile Icon" />
 					<div>
-						<h3 class="text-lg font-bold">اصالت کالا</h3>
-						<p class="text-sm">ضمانت اصل بودن تمام کالاها</p>
+						<h3 class="text-lg font-bold">پشتیبانی دائم</h3>
+						<p class="text-sm">پشتیبانی 24/7 تلفنی و آنلاین </p>
 					</div>
 				</div>
 				<div class="flex items-center">
 					<img class="ml-4 w-16 h-16"
-						 src="<?= get_stylesheet_directory_uri() . '/assets/img/box.svg'; ?>"
+						 src="<?= get_stylesheet_directory_uri() . '/assets/img/backup.png'; ?>"
 						 alt="Box Icon" />
 					<div>
-						<h3 class="text-lg font-bold">تعویض کالا</h3>
-						<p class="text-sm">تا ۷ روز در صورت داشتن مشکل</p>
+						<h3 class="text-lg font-bold">مشاوره تخصصی</h3>
+						<p class="text-sm">ارتباط با کارشناسان فروش</p>
 					</div>
 				</div>
 			</div>
@@ -102,17 +104,23 @@ $btn_link_instagram = get_option( 'btn_link_instagram' );
 				</div>
 				<div
 					 class="w-[100%] md:w-[100%] lg:w-[15%] xl:w-[22%] flex items-center justify-center lg:justify-end order-first lg:order-none">
-					<a href="#">
-						<?php
-						if ( $footer_logo ) {
-							echo '<a href="' . esc_url( home_url() ) . '"><img src="' . esc_url( $footer_logo ) . '" alt="' . get_bloginfo( 'name' ) . '" /></a>';
-						} ?>
-					</a>
+					<div>
+						<a href="/">
+							<?php
+							if ( $footer_logo ) {
+								echo '<a href="' . esc_url( home_url() ) . '"><img src="' . esc_url( $footer_logo ) . '" alt="' . get_bloginfo( 'name' ) . '" /></a>';
+							} ?>
+						</a>
+
+						<div>
+							<?php echo empty( $enamad ) ? '' : esc_html( $enamad ) ?>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container mx-auto p-10 md:p-8 lg:p-10 text-center">
-			<ul class="flex justify-center gap-8 pt-6 border-t border-darkborder pb-16 md:pb-0">
+			<!-- <ul class="flex justify-center gap-8 pt-6 border-t border-darkborder pb-16 md:pb-0">
 				<li>
 					<a href="<?= esc_url( $link_whatsapp ); ?>">
 						<svg class="icon">
@@ -128,9 +136,9 @@ $btn_link_instagram = get_option( 'btn_link_instagram' );
 						</svg>
 					</a>
 				</li>
-			</ul>
+			</ul> -->
 
-			<div class="mt-4 text-white opacity-30">
+			<div class="mt-4 text-white opacity-30 border-t pt-6 ">
 				<span>Design & Develope by <a href="https://cyandm.com">Cyan DM</a></span>
 			</div>
 		</div>

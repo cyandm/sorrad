@@ -105,7 +105,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 					'panel' => 'demo_panel'
 				]
 			);
-			
+
 
 			//header
 			$this->cyn_add_control( $wp_customize, 'header_section', 'text', 'link_search_page', 'لینک صفحه جستجو' );
@@ -124,87 +124,9 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_whatsapp', 'لینک دکمه ارتباط در واتس اپ' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_phones', 'لینک دکمه شماره تماس ها' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_instagram', 'لینک دکمه اینستاگرام ها' );
-
-			//بخش سوالات متداول اینجا دسته ها انتخاب میشه برای نمایش
-			$categories = get_terms(array(
-				'taxonomy'   => 'catfaq',
-				'hide_empty' => false,
-			));
-		
-			$cats = array();
-			foreach ($categories as $category) {
-				$cats[$category->term_id] = $category->name;
-			}
-		
-			$wp_customize->add_setting('faq_category_all', array(
-				'default'   => '',
-				'transport' => 'refresh',
-			));
-			$wp_customize->add_control('faq_category_all', array(
-				'type'    => 'select',
-				'section' => 'faq_section',
-				'label'   => __('دسته سوالات کلی را انتخاب کنید'),
-				'choices' => $cats,
-			));
-
-			$wp_customize->add_setting('faq_category_soorad', array(
-				'default'   => '',
-				'transport' => 'refresh',
-			));
-			$wp_customize->add_control('faq_category_soorad', array(
-				'type'    => 'select',
-				'section' => 'faq_section',
-				'label'   => __('دسته درباره سراد را انتخاب کنید'),
-				'choices' => $cats,
-			));
-
-			$wp_customize->add_setting('faq_category_poam', array(
-				'default'   => '',
-				'transport' => 'refresh',
-			));
-			$wp_customize->add_control('faq_category_poam', array(
-				'type'    => 'select',
-				'section' => 'faq_section',
-				'label'   => __('دسته انتخاب عطر را انتخاب کنید'),
-				'choices' => $cats,
-			));
-
-			$wp_customize->add_setting('faq_category_contactus', array(
-				'default'   => '',
-				'transport' => 'refresh',
-			));
-			$wp_customize->add_control('faq_category_contactus', array(
-				'type'    => 'select',
-				'section' => 'faq_section',
-				'label'   => __('دسته تماس با ما را انتخاب کنید'),
-				'choices' => $cats,
-			));
-
-
+			$this->cyn_add_control( $wp_customize, 'footer_section', 'textarea', 'enamad', 'کد ای نماد' );
 		}
 
-		private function cyn_register_panel_demo_2( $wp_customize ) {
-
-			$wp_customize->add_panel(
-				'demo_panel_2',
-				[ 
-					'title' => 'CyanTheme - Demo Panel 2',
-					'priority' => 2
-				]
-			);
-
-
-			$wp_customize->add_section(
-				'demo_section_2',
-				[ 
-					'title' => 'Demo section 2',
-					'priority' => 1,
-					'panel' => 'demo_panel_2'
-				]
-			);
-
-			$this->cyn_add_control( $wp_customize, 'demo_section_2', 'file', 'demo_file_control', 'Demo File Control' );
-		}
 
 	}
 }
