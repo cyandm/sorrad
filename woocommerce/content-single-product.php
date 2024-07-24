@@ -60,9 +60,9 @@ if ( post_password_required() ) {
 		<div class="image space-y-2 col-span-1">
 
 
-			<?php if ( $is_perfume ) : ?>
+			<?php if ( count( $terms ) > 0 && ! empty( get_field( 'slogan', 'product_cat_' . $terms[0]->term_id ) ) ) : ?>
 				<div class="p-5 border rounded-2xl max-lg:text-sm max-md:text-xs">
-					<?php _e( 'تمامی عطر ها "ساخت اختصاصی" برند سراد هستند. ', 'cyn-dm' ) ?>
+					<?php echo get_field( 'slogan', 'product_cat_' . $terms[0]->term_id ) ?>
 				</div>
 			<?php endif; ?>
 
@@ -134,7 +134,6 @@ if ( post_password_required() ) {
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
 
-	<?php //call_user_func( 'comments_template' ) ?>
 
 </div>
 

@@ -21,10 +21,12 @@
 				</a>
 			</div>
 
-			<form name="s"
+			<form method="get"
+				  action="/"
 				  class="flex items-center border-b border-gray-300 py-2">
 				<input type="text"
 					   placeholder="دنبال چی میگردی؟"
+					   name="s"
 					   class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" />
 				<button type="submit"
 						class="flex-shrink-0 bg-transparent border-none text-gray-700 py-1 px-2 focus:outline-none">

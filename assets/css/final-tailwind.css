@@ -3337,6 +3337,11 @@ input[type='range']::-webkit-slider-thumb {
   height: 1rem;
 }
 
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .size-8 {
   width: 2rem;
   height: 2rem;
@@ -3345,6 +3350,11 @@ input[type='range']::-webkit-slider-thumb {
 .size-9 {
   width: 2.25rem;
   height: 2.25rem;
+}
+
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .h-1 {
@@ -4007,11 +4017,6 @@ input[type='range']::-webkit-slider-thumb {
   border-color: rgb(5 122 85 / var(--tw-border-opacity));
 }
 
-.border-red-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(240 82 82 / var(--tw-border-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -4114,16 +4119,6 @@ input[type='range']::-webkit-slider-thumb {
   background-color: rgb(255 255 255 / 0.7);
 }
 
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-
 .bg-none {
   background-image: none;
 }
@@ -4187,6 +4182,10 @@ input[type='range']::-webkit-slider-thumb {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-\[2px\] {
+  padding: 2px;
 }
 
 .\!py-2 {
@@ -5444,6 +5443,10 @@ input[type='submit'] {
     margin-bottom: 0.75rem;
   }
 
+  .max-md\:mt-4 {
+    margin-top: 1rem;
+  }
+
   .max-md\:flex {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5628,6 +5631,10 @@ input[type='submit'] {
     margin-top: 5rem;
   }
 
+  .md\:mt-4 {
+    margin-top: 1rem;
+  }
+
   .md\:line-clamp-1 {
     overflow: hidden;
     display: -webkit-box;
@@ -5646,6 +5653,16 @@ input[type='submit'] {
   .md\:size-full {
     width: 100%;
     height: 100%;
+  }
+
+  .md\:size-8 {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .md\:size-6 {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .md\:w-\[100\%\] {
@@ -5721,6 +5738,11 @@ input[type='submit'] {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .md\:leading-8 {
@@ -5927,6 +5949,10 @@ input[type='submit'] {
 
   .lg\:p-8 {
     padding: 2rem;
+  }
+
+  .lg\:p-1 {
+    padding: 0.25rem;
   }
 
   .lg\:px-10 {

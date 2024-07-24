@@ -22,7 +22,7 @@ require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-rankmath.php' );
 
 
 //instance classes
-new cyn_theme_init( true, '1.0.1' );
+new cyn_theme_init( false, '1.0.1' );
 new cyn_register();
 new cyn_customize();
 new cyn_filters();
@@ -41,3 +41,5 @@ require_once ( CYN_THEME_DIRECTORY . '/inc/functions/cyn-update-checker.php' );
 include_once ( CYN_ACF_PATH . 'acf.php' );
 require_once ( CYN_THEME_DIRECTORY . '/inc/functions/cyn-acf-fields.php' );
 require_once ( CYN_THEME_DIRECTORY . '/inc/functions/cyn-acf.php' );
+
+

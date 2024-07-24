@@ -60,6 +60,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		do_action( 'woocommerce_shop_loop_item_title' );
 		?>
 
+		<div class="text-xs md:text-sm text-gray-400">
+			<?php echo get_field( 'english_name' ) ?>
+		</div>
+
 		<div class="flex justify-between items-center">
 			<?php
 			/**

@@ -11,7 +11,7 @@ $cyn_woocommerce = new cyn_woocommerce();
 <a href="<?php echo get_permalink( $postId ) ?>">
 
 	<div
-		 class="relative transition-all duration-300 rounded-xl hover:shadow-cxl group overflow-hidden max-md:shadow-cxl max-md:flex max-md:flex-row-reverse">
+		 class="relative transition-all duration-300 justify-between rounded-xl hover:shadow-cxl group overflow-hidden max-md:shadow-cxl max-md:flex max-md:flex-row-reverse">
 		<?php echo wp_get_attachment_image( get_field( 'custom_thumbnail', $postId ), 'full', false, [ 'class' => 'relative -z-10 max-md:max-w-28 max-md:object-contain' ] ) ?>
 
 		<div

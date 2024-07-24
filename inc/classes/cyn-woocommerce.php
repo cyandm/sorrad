@@ -11,13 +11,14 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			add_filter( 'woocommerce_gallery_image_html_attachment_image_params', [ $this, 'product_image_class' ] );
 			add_filter( 'wc_price', [ $this, 'price_class' ], 10, 5 );
 			add_action( 'woocommerce_single_product_summary', [ $this, 'woocommerce_template_table' ], 6 );
-			add_action( 'woocommerce_product_loop_title_classes', [ $this, 'card_class' ] );
+			add_action( 'woocommerce_product_loop_title_classes', [ $this, 'title_card_class' ] );
 			add_filter( 'woocommerce_variable_price_html', [ $this, 'change_price_variable' ], 10, 2 );
 			add_action( 'woocommerce_before_shop_loop_item', [ $this, 'cyn_template_loop_product_link_open' ], 5 );
 			add_filter( 'woocommerce_account_menu_items', [ $this, 'customize_dashboard_nav' ], 10, 2 );
 			add_filter( 'woocommerce_account_orders_columns', [ $this, 'add_column_to_order' ], 10, 1 );
 
 			add_action( 'cyn_title', 'woocommerce_template_single_title', 5 );
+			add_action( 'cyn_title', [ $this, 'cyn_title_english_name' ], 5 );
 
 			add_action( 'woocommerce_shop_loop_header', 'woocommerce_breadcrumb', 20 );
 
@@ -96,8 +97,8 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			return $return;
 		}
 
-		function card_class( $classes ) {
-			$classes .= ' text-lg mt-4 mb-2 line-clamp-2 max-md:text-sm';
+		function title_card_class( $classes ) {
+			$classes .= 'text-lg md:mt-4 line-clamp-2 max-md:text-sm';
 
 			return $classes;
 		}
@@ -139,12 +140,12 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 				}
 
 				if ( $name !== 'یونیسکس' ) {
-					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse $class ?>\"> <span class=\"max-md:hidden \">  </span> <span>$svg</span> </div>";
+					echo "<div class=\"rounded-lg p-[2px]  inline-flex items-center flex-row-reverse size-5 md:size-6 $class ?>\"> <span class=\"max-md:hidden \">  </span> <span>$svg</span> </div>";
 				} else {
-					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse bg-sky-200 text-sky-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span> " .
+					echo "<div class=\"rounded-lg p-[2px]  inline-flex items-center flex-row-reverse size-5 md:size-6 bg-sky-200 text-sky-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span> " .
 						file_get_contents( CYN_THEME_DIRECTORY . '/assets/svg/men.svg' ) . " </span> </div>";
 
-					echo "<div class=\"rounded-lg p-1 lg:px-2 inline-flex items-center flex-row-reverse bg-rose-200 text-rose-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span>" .
+					echo "<div class=\"rounded-lg p-[2px]  inline-flex items-center flex-row-reverse size-5 md:size-6 bg-rose-200 text-rose-800 ?>\"> <span class=\"max-md:hidden \">  </span> <span>" .
 						file_get_contents( CYN_THEME_DIRECTORY . '/assets/svg/women.svg' ) . "</span> </div>";
 				}
 
@@ -167,7 +168,6 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 
 			echo '<a href="' . esc_url( $link ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link max-md:flex max-md:flex-row-reverse max-md:justify-between max-md:gap-2">';
 		}
-
 
 		function customize_dashboard_nav( $items, $endpoints ) {
 			unset( $items['downloads'] );

@@ -10,7 +10,7 @@ $search_type = empty( $_GET['search-type'] ) ? 'all' : $_GET['search-type'];
 
 <?php get_header() ?>
 
-<div class="p-4">
+<div class="py-4 container">
 	<?php if ( function_exists( 'rank_math_the_breadcrumbs' ) ) {
 		rank_math_the_breadcrumbs();
 	}
@@ -107,24 +107,28 @@ $search_type = empty( $_GET['search-type'] ) ? 'all' : $_GET['search-type'];
 	<div class="p-2">
 
 
-		<?php if ( have_posts() ) : ?>
+		<?php if ( ! empty( $_GET['s'] ) ) : ?>
 
-			<div id="searchPostsWrapper"
-				 class="space-y-4">
-				<?php while ( have_posts() ) :
-					the_post()
-						?>
-					<div class="">
-						<?php cyn_get_card( 'search' ) ?>
-					</div>
-				<?php endwhile; ?>
-			</div>
+			<?php if ( have_posts() ) : ?>
 
-			<?php
-		else :
-			cyn_get_component( 'search-not-found' );
-		endif;
-		?>
+				<div id="searchPostsWrapper"
+					 class="space-y-4">
+					<?php while ( have_posts() ) :
+						the_post()
+							?>
+						<div class="">
+							<?php cyn_get_card( 'search' ) ?>
+						</div>
+					<?php endwhile; ?>
+				</div>
+
+				<?php
+			else :
+				cyn_get_component( 'search-not-found' );
+			endif;
+			?>
+
+		<?php endif; ?>
 	</div>
 </div>
 

@@ -5,7 +5,6 @@ function cyn_register_acf() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
-	// cyn_register_acf_company_settings();
 	cyn_register_acf_product_settings();
 	cyn_register_acf_product_notes();
 	cyn_register_acf_product_cats();
@@ -13,6 +12,7 @@ function cyn_register_acf() {
 	cyn_register_acf_home_page();
 	cyn_register_acf_podcast();
 	cyn_register_acf_posts();
+	cyn_register_acf_about_us();
 }
 
 function cyn_register_acf_product_settings() {
@@ -23,6 +23,8 @@ function cyn_register_acf_product_settings() {
 		cyn_register_add_tax( 'end_notes', 'نت های پایانی', 'product_notes' ),
 
 		cyn_acf_add_image( 'custom_thumbnail', 'تصویر شاخص مخصوص صفحه اصلی' ),
+
+		cyn_acf_add_text( 'english_name', 'نام انگلیسی' ),
 
 	];
 
@@ -78,7 +80,7 @@ function cyn_register_acf_product_cats() {
 
 	$fields = [ 
 		cyn_acf_add_options( 'filters', 'انتخاب فیلتر ها', $choices, 1 ),
-
+		cyn_acf_add_text( 'slogan', 'شعار' ),
 	];
 
 	$location = [ 
@@ -137,6 +139,31 @@ function cyn_register_acf_home_page() {
 				'param' => 'page_template',
 				'operator' => '==',
 				'value' => 'templates/home.php',
+			],
+		],
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+}
+
+function cyn_register_acf_about_us() {
+	$fields = [ 
+		cyn_acf_add_text( 'about_title_top', 'عنوان بالا' ),
+		cyn_acf_add_text( 'about_title_bottom', 'عنوان پایین' ),
+
+		cyn_acf_add_image( 'gallery_img_one', 'تصویر اول' ),
+		cyn_acf_add_image( 'gallery_img_two', 'تصویر دوم' ),
+		cyn_acf_add_image( 'gallery_img_three', 'تصویر سوم' ),
+	];
+
+
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'templates/about-template.php',
 			],
 		],
 	];
