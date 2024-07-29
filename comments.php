@@ -24,8 +24,8 @@
 			'class_container' => '',
 			'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title py-2 hidden">',
 			'title_reply_after' => '</h3>',
-			'submit_field' => '<div class="grid justify-end order-3">
-            <div class="form-submit  w-fit flex flex-row-reverse flex-end max-lg:justify-center gap-1 primary-btn">%1$s %2$s
+			'submit_field' => '<div class="grid  md:justify-end order-3">
+            <div class="form-submit w-full md:w-fit flex flex-row-reverse flex-end max-lg:justify-center gap-1 primary-btn">%1$s %2$s
                         <svg class="icon !text-white"><use href="#icon-Send"/></svg>
                     </div>
                      </div>',

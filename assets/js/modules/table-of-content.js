@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (!tocGroup || !prose || !headings || !icon) return;
 
+	if (headings.length < 1) {
+		tocGroup.forEach((toc) => {
+			toc.innerText = 'متاسفانه هیچ عنوانی یافت نشد!';
+		});
+
+		return;
+	}
+
 	headings.forEach(function (heading, index) {
 		// Create a unique ID for each heading
 		const id = 'section-' + index;

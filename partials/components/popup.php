@@ -8,7 +8,11 @@
 		<div class="col-span-12 lg:col-span-6 text-center relative">
 
 			<div id="close-popup"
-				 class="absolute right-9 top-9 cursor-pointer "><i class=""></i></div>
+				 class="absolute right-9 top-9 cursor-pointer ">
+				<svg class="icon size-6 rotate-45">
+					<use href="#icon-plus" />
+				</svg>
+			</div>
 			<h2 class="text-xl font-semibold my-10 lg:mt-9 lg:mb-44">سراد گالری</h2>
 
 			<div class="flex flex-col mb-3 gap-3">

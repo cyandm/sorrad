@@ -28,7 +28,7 @@ if ( $total <= 1 ) {
 	return;
 }
 ?>
-<div class="flex justify-between items-center mt-3">
+<div class="flex justify-between items-center mt-3 flex-col gap-2 md:flex-row">
 	<nav
 		 class="woocommerce-pagination flex  [&_.current]:!text-white [&_.current]:!bg-black [&_ul]:!flex [&_ul]:gap-2 [&_ul]:!border-none [&_li]:!border [&_li]:!rounded-md [&_li]:!size-8">
 		<?php

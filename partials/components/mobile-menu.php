@@ -50,7 +50,7 @@
 			<?php
 
 			?>
-			<li>
+			<!-- <li>
 				<a href="<?= esc_url( $link_whatsapp ); ?>">
 					<svg class="icon">
 						<use href="#icon-Whatsup" />
@@ -64,7 +64,7 @@
 						<use href="#icon-Youtube" />
 					</svg>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>

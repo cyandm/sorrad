@@ -3254,10 +3254,6 @@ input[type='range']::-webkit-slider-thumb {
   margin-top: 7.5rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -5732,6 +5728,12 @@ input[type='submit'] {
     width: 45%;
   }
 
+  .md\:w-fit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
   .md\:border-spacing-3 {
     --tw-border-spacing-x: 0.75rem;
     --tw-border-spacing-y: 0.75rem;
@@ -5750,6 +5752,19 @@ input[type='submit'] {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .md\:justify-end {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 
   .md\:rounded-3xl {
@@ -6052,6 +6067,11 @@ input[type='submit'] {
     text-align: right;
   }
 
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -6069,11 +6089,6 @@ input[type='submit'] {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 

@@ -14853,6 +14853,12 @@
     const icon = document.querySelector(".separator svg");
     if (!tocGroup || !prose || !headings || !icon)
       return;
+    if (headings.length < 1) {
+      tocGroup.forEach((toc) => {
+        toc.innerText = "\u0645\u062A\u0627\u0633\u0641\u0627\u0646\u0647 \u0647\u06CC\u0686 \u0639\u0646\u0648\u0627\u0646\u06CC \u06CC\u0627\u0641\u062A \u0646\u0634\u062F!";
+      });
+      return;
+    }
     headings.forEach(function(heading, index) {
       const id = "section-" + index;
       heading.setAttribute("id", id);
