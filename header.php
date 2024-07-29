@@ -2,6 +2,7 @@
 $render_template = $args['render_template'] ?? true;
 
 
+
 $link_linkedin = get_option( 'link_linkedin' );
 $link_youtube = get_option( 'link_youtube' );
 $link_whatsapp = get_option( 'link_whatsapp' );
@@ -21,8 +22,15 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 	<body <?php body_class( 'overflow-x-hidden font-peyda' ) ?>>
 		<?php wp_body_open() ?>
 
+		<?php cyn_get_component( 'preloader' ) ?>
 
 		<?php if ( $render_template ) : ?>
+
+			<svg id="chevron-down"
+				 class="icon hidden">
+				<use href="#icon-chevron-down" />
+			</svg>
+
 			<header class=" bg-transparent lg:bg-white/20 py-4 flex items-center relative z-20">
 				<div class="container mx-auto px-4">
 					<div class="grid grid-cols-12 items-center">

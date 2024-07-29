@@ -46,15 +46,15 @@ if ( ! class_exists( 'cyn_register' ) ) {
 		public function cyn_page_register() {
 			//This pages can't be removed
 
-			if ( is_null( get_page_by_path( 'sample' ) ) ) {
-				wp_insert_post( [ 
-					'post_type' => 'page',
-					'post_status' => 'publish',
-					'post_title' => 'Sample',
-					'post_name' => 'sample',
-					'page_template' => 'templates/sample.php'
-				] );
-			}
+			// if ( is_null( get_page_by_path( 'sample' ) ) ) {
+			// 	wp_insert_post( [ 
+			// 		'post_type' => 'page',
+			// 		'post_status' => 'publish',
+			// 		'post_title' => 'Sample',
+			// 		'post_name' => 'sample',
+			// 		'page_template' => 'templates/sample.php'
+			// 	] );
+			// }
 
 		}
 

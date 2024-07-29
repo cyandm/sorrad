@@ -17,3 +17,31 @@ function taxonomyFilter() {
 }
 
 taxonomyFilter();
+
+function priceFilter() {
+	const maxPrice = document.querySelector('input[type="range"]#maxPrice');
+	const minPrice = document.querySelector('input[type="range"]#minPrice');
+
+	const minPriceText = document.querySelector('#minPriceText');
+	const maxPriceText = document.querySelector('#maxPriceText');
+
+	if (!maxPrice || !minPrice) return;
+
+	minPrice.addEventListener('change', (e) => {
+		minPriceText.value = e.target.value;
+	});
+
+	minPriceText.addEventListener('change', (e) => {
+		minPrice.value = e.target.value;
+	});
+
+	maxPrice.addEventListener('change', (e) => {
+		maxPriceText.value = e.target.value;
+	});
+
+	maxPriceText.addEventListener('change', (e) => {
+		maxPrice.value = e.target.value;
+	});
+}
+
+priceFilter();

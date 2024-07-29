@@ -16,9 +16,10 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			add_action( 'woocommerce_before_shop_loop_item', [ $this, 'cyn_template_loop_product_link_open' ], 5 );
 			add_filter( 'woocommerce_account_menu_items', [ $this, 'customize_dashboard_nav' ], 10, 2 );
 			add_filter( 'woocommerce_account_orders_columns', [ $this, 'add_column_to_order' ], 10, 1 );
+			add_filter( 'woocommerce_catalog_orderby', [ $this, 'customize_orders_column' ], 10, 1 );
+
 
 			add_action( 'cyn_title', 'woocommerce_template_single_title', 5 );
-			add_action( 'cyn_title', [ $this, 'cyn_title_english_name' ], 5 );
 
 			add_action( 'woocommerce_shop_loop_header', 'woocommerce_breadcrumb', 20 );
 
@@ -54,6 +55,8 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 		}
+
+
 
 		function customize_breadcrumb( $breadcrumb_defaults ) {
 			$breadcrumb_defaults = [ 
@@ -218,6 +221,13 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			return $columns;
 		}
 
+		function customize_orders_column( $order_items ) {
+			unset( $order_items['menu_order'] );
+			unset( $order_items['popularity'] );
+			unset( $order_items['rating'] );
+
+			return $order_items;
+		}
 
 	}
 }

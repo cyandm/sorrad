@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		li.classList.add('flex', 'flex-row-reverse', 'justify-between', 'p-1');
 		const a = document.createElement('a');
 		const svg = icon.cloneNode(true);
+		svg.classList.add('min-w-4');
 
 		a.textContent = heading.textContent;
 		a.setAttribute('href', '#' + id);

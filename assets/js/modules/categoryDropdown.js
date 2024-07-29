@@ -10,7 +10,9 @@ function categoryDropdown() {
 		const pathArray = window.location.pathname.split('/');
 		const currentSlug = pathArray[pathArray.indexOf(categoryBase.value) + 1];
 
-		select.value = currentSlug;
+		if (currentSlug) {
+			select.value = currentSlug;
+		}
 
 		select.addEventListener('change', (event) => {
 			window.location.href = baseUrl.value + '/' + event.target.value;

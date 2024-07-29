@@ -13,6 +13,9 @@ function cyn_register_acf() {
 	cyn_register_acf_podcast();
 	cyn_register_acf_posts();
 	cyn_register_acf_about_us();
+	cyn_register_acf_home_blog();
+	cyn_register_acf_custom_thumb();
+	cyn_register_acf_custom_shop();
 }
 
 function cyn_register_acf_product_settings() {
@@ -200,6 +203,97 @@ function cyn_register_acf_posts() {
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'post',
+			],
+		],
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+}
+
+function cyn_register_acf_home_blog() {
+
+	$choices = [];
+	$cats = get_categories();
+
+	foreach ( $cats as $cat ) {
+		$choices[ $cat->slug ] = $cat->name;
+	}
+
+	$fields = [ 
+		cyn_acf_add_post_object( 'feature_posts', 'پست های برجسته', 'post', 100, 1 ),
+		cyn_acf_add_options( 'selected_cats', 'دسته بندی های برجسته', $choices, 1 ),
+	];
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'page',
+				'operator' => '==',
+				'value' => get_option( 'page_for_posts' ),
+			],
+		],
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+}
+
+function cyn_register_acf_custom_thumb() {
+	$fields = [ 
+		cyn_acf_add_image( 'custom_thumbnail', 'تصویر شاخص' )
+
+	];
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'category',
+			],
+		],
+	];
+
+	cyn_register_acf_group( 'تنظیمات ', $fields, $location );
+}
+
+function cyn_register_acf_custom_shop() {
+
+	$banners = [ 
+		cyn_acf_add_tab( 'بنر ها' ),
+		cyn_acf_add_image( 'banner_1', 'تصویر 1', 33 ),
+		cyn_acf_add_text( 'banner_text_1', 'متن 1', 0, 33 ),
+		cyn_acf_add_link( 'banner_link_1', 'لینک 1', 33 ),
+
+		cyn_acf_add_image( 'banner_2', 'تصویر 2', 33 ),
+		cyn_acf_add_text( 'banner_text_2', 'متن 2', 0, 33 ),
+		cyn_acf_add_link( 'banner_link_2', 'لینک 2', 33 ),
+
+		cyn_acf_add_image( 'banner_3', 'تصویر 3', 33 ),
+		cyn_acf_add_text( 'banner_text_3', 'متن 3', 0, 33 ),
+		cyn_acf_add_link( 'banner_link_3', 'لینک 3', 33 ),
+	];
+
+	$products = [ 
+		cyn_acf_add_tab( 'محصولات' ),
+	];
+
+	for ( $i = 1; $i < 11; $i++ ) {
+		array_push( $products, cyn_acf_add_text( "product_text_$i", "متن $i", 0, 33 ) );
+		array_push( $products, cyn_acf_add_post_object( "products_$i", "محصولات $i", 'product', 33, 1 ) );
+		array_push( $products, cyn_acf_add_link( "product_link_$i", "لینک $i", 33 ),
+		);
+	}
+
+
+
+	$fields = array_merge( $banners, $products );
+
+	$location = [ 
+		[ 
+			[ 
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'templates/custom-shop.php',
 			],
 		],
 	];

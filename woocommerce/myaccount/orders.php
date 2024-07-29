@@ -23,6 +23,17 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
+
+<div
+	 class="bg-blue-100 
+	p-2 mb-4 rounded-md border-r-4
+	 border-blue-600 text-blue-950 flex justify-between items-center flex-row max-md:flex-col-reverse 
+	 [&_a]:!border [&_a]:!border-solid [&_a]:!border-blue-700 max-md:[&_a]:!mt-2 [&_a]:!bg-white [&_a]:!text-sm [&_a]:!mr-auto [&_a]:!ml-0 [&_a]:!text-blue-700">
+	<?php echo get_option( 'cyn_order_text_notice', 'در صورتی تمایل به مشاهده سفارشات قدیمی خود دارید به وبسایت قدیمی ما سر بزنید!' ) ?>
+	<a class="p-2"
+	   href="<?php echo get_option( 'cyn_order_link_notice', 'https://old.sorrad.ir' ) ?>"> مشاهده وبسایت قدیمی </a>
+</div>
+
 <?php if ( $has_orders ) : ?>
 
 	<table

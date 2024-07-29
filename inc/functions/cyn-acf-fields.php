@@ -76,7 +76,7 @@ function cyn_acf_add_post_object( $name, $label, $post_type, $width = '', $multi
 	];
 }
 
-function cyn_acf_add_image( $name, $label ) {
+function cyn_acf_add_image( $name, $label, $width = 25 ) {
 	return [ 
 		'key' => 'filed_' . cyn_acf_unique_id(),
 		'label' => $label,
@@ -84,7 +84,7 @@ function cyn_acf_add_image( $name, $label ) {
 		'type' => 'image',
 		'return_format' => 'id',
 		'wrapper' => [ 
-			'width' => '25'
+			'width' => $width
 		]
 	];
 }
@@ -369,4 +369,24 @@ function cyn_acf_add_group( $name, $label, $sub_fields ) {
 		'sub_fields' => $sub_fields
 	];
 }
+
+function cyn_acf_add_link( $name, $label, $width = '' ) {
+	return [ 
+		'key' => 'filed_' . cyn_acf_unique_id(),
+		'label' => $label,
+		'name' => $name,
+		'aria-label' => $name,
+		'type' => 'link',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => $width,
+			'class' => '',
+			'id' => '',
+		),
+		'return_format' => 'url',
+	];
+}
+
 #endregion

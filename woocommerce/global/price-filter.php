@@ -37,14 +37,22 @@ $lowest_price = get_post_meta( $lowest->ID, '_price', true );
 		<div class="overflow-hidden">
 			<div class=" space-y-4 my-3 px-2s">
 				<div class="">
-					<div class="flex justify-between">
+					<div class="flex justify-between items-center">
 						<label for="minPrice"
 							   class="text-sm">حداقل قیمت</label>
 
-						<span id="minPriceText"
-							  class="text-sm">
-							<?php echo wc_price( $_GET['minPrice'] ?? $lowest_price ) ?>
-						</span>
+						<div>
+							<input id="minPriceText"
+								   class="max-w-28"
+								   type="number"
+								   value="<?php echo $_GET['minPrice'] ?? $lowest_price ?>">
+
+
+							<span>تومان</span>
+						</div>
+
+
+
 					</div>
 					<input id="minPrice"
 						   dir="ltr"
@@ -63,10 +71,15 @@ $lowest_price = get_post_meta( $lowest->ID, '_price', true );
 
 						<label for="maxPrice"
 							   class="text-sm">حداکثر قیمت</label>
-						<span id="maxPriceText"
-							  class="text-sm">
-							<?php echo wc_price( $_GET['maxPrice'] ?? $highest_price ) ?>
-						</span>
+						<div>
+							<input id="maxPriceText"
+								   class="max-w-28"
+								   type="number"
+								   value="<?php echo $_GET['maxPrice'] ?? $lowest_price ?>">
+
+
+							<span>تومان</span>
+						</div>
 					</div>
 					<input id="maxPrice"
 						   step="1000"

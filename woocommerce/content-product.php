@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+// $product_custom = $args['post-id'] ? wc_get_product( $args['post-id'] ) : 0;
+
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
@@ -57,11 +59,15 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		 *
 		 * @hooked woocommerce_template_loop_product_title - 10
 		 */
-		do_action( 'woocommerce_shop_loop_item_title' );
+		// do_action( 'woocommerce_shop_loop_item_title' );
+		?>
+
+		<?php
+		echo '<h2 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) ) . '">' . get_the_title( $product->get_id() ) . '</h2>';
 		?>
 
 		<div class="text-xs md:text-sm text-gray-400">
-			<?php echo get_field( 'english_name' ) ?>
+			<?php echo get_field( 'english_name', $product->get_id() ) ?>
 		</div>
 
 		<div class="flex justify-between items-center">

@@ -59,7 +59,7 @@ $enamad = get_option( 'enamad' );
 		</div>
 	</section>
 
-	<footer class="bg-black text-white">
+	<footer class="max-md:pb-20 bg-black text-white">
 		<div class="container mx-auto p-10 md:p-8 lg:p-10">
 			<div class="flex flex-wrap gap-8">
 				<div class="w-[45%] md:w-[21%] lg:w-[10%] border-l border-gray-900">
@@ -82,29 +82,55 @@ $enamad = get_option( 'enamad' );
 					</ul>
 					<div class="mt-9 sm:w-[100%]">
 						<ul class="space-y-5 text-xs">
-							<li><a href="<?= esc_url( $btn_link_phones ); ?>"
-								   class="rounded-3xl block w-52 py-2 px-8 bg-white/20">
-									<svg class="icon">
-										<use href="#icon-Phone,-Call-11" />
+							<li>
+								<a href="<?= esc_url( $btn_link_phones ); ?>"
+								   class="rounded-3xl flex items-center w-52 py-2 px-5 bg-white/20">
+									<div class="flex justify-between items-center gap-1">
+										<svg class="icon">
+											<use href="#icon-Phone,-Call-11" />
+										</svg>
+										شماره تماس ها
+									</div>
+									<svg class="icon size-4 mr-auto ml-0 rotate-90">
+										<use href="#icon-chevron-down" />
 									</svg>
-									شماره تماس ها</a></li>
-							<li><a href="<?= esc_url( $btn_link_instagram ); ?>"
-								   class="rounded-3xl block w-52 py-2 px-8 bg-white/20">
-									<svg class="icon">
-										<use href="#icon-instagram" />
+								</a>
+							</li>
+							<li>
+								<a href="<?= esc_url( $btn_link_instagram ); ?>"
+								   class="rounded-3xl flex items-center w-52 py-2 px-5 bg-white/20">
+									<div class="flex justify-between items-center gap-1">
+										<svg class="icon">
+											<use href="#icon-instagram" />
+										</svg>
+										اینستاگرام ها
+									</div>
+									<svg class="icon size-4 mr-auto ml-0 rotate-90">
+										<use href="#icon-chevron-down" />
 									</svg>
-									اینستاگرام ها</a>
+								</a>
 							</li>
 							<li><a href="<?= esc_url( $btn_link_whatsapp ); ?>"
-								   class="rounded-3xl block w-52 py-2 px-8 bg-white/20"><svg class="icon">
-										<use href="#icon-Whatsup" />
-									</svg> ارتباط در واتس اپ</a></li>
+								   class="rounded-3xl flex items-center w-52 py-2 px-5 bg-white/20">
+									<div class="flex justify-between items-center gap-1">
+										<svg class="icon">
+											<use href="#icon-Whatsup" />
+										</svg> ارتباط در واتس اپ
+									</div>
+
+									<svg class="icon size-4 mr-auto ml-0 rotate-90">
+										<use href="#icon-chevron-down" />
+									</svg>
+
+								</a>
+
+							</li>
 						</ul>
 					</div>
 				</div>
 				<div
 					 class="w-[100%] md:w-[100%] lg:w-[15%] xl:w-[22%] flex items-center justify-center lg:justify-end order-first lg:order-none">
-					<div>
+					<div class="max-md:flex">
 						<a href="/">
 							<?php
 							if ( $footer_logo ) {
@@ -113,7 +139,7 @@ $enamad = get_option( 'enamad' );
 						</a>
 
 						<div>
-							<?php echo empty( $enamad ) ? '' : esc_html( $enamad ) ?>
+							<?php echo empty( $enamad ) ? '' : $enamad ?>
 						</div>
 					</div>
 				</div>

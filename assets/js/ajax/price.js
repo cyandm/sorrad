@@ -1,3 +1,5 @@
+// because of input on price, this is disabled
+
 function getWcPrice() {
 	const maxPrice = document.querySelector('input[type="range"]#maxPrice');
 	const minPrice = document.querySelector('input[type="range"]#minPrice');
@@ -40,4 +42,4 @@ function getWcPrice() {
 	});
 }
 
-getWcPrice();
+// getWcPrice();

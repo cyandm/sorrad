@@ -15,3 +15,4 @@ import './search';
 import './comments';
 import './breadcrumb';
 import './table-of-content';
+import './preloader';

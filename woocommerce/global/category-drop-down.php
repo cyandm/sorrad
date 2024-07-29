@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="[&_select]:w-full">
 			<?php
 			wp_dropdown_categories( [ 
+				'show_option_none' => 'هیچکدام',
+				'selected' => -1,
 				'taxonomy' => 'product_cat',
 				'hide_empty' => false,
 				'parent' => 0,

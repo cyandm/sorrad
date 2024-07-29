@@ -35,6 +35,7 @@ if ( $related_products ) : ?>
 		<swiper-container slides-per-view="1"
 						  breakpoints="{&quot;768&quot;:{&quot;slidesPerView&quot;:2},&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;1440&quot;:{&quot;slidesPerView&quot;:4}}"
 						  pagination="true"
+						  pagination-el="#paginationEl"
 						  space-between="8">
 
 			<?php foreach ( $related_products as $related_product ) : ?>
@@ -50,6 +51,9 @@ if ( $related_products ) : ?>
 			<?php endforeach; ?>
 
 		</swiper-container>
+
+		<div id="paginationEl"
+			 class="w-full flex justify-center items-start my-2"></div>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</section>

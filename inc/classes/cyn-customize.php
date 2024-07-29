@@ -98,9 +98,9 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			);
 
 			$wp_customize->add_section(
-				'faq_section',
+				'order_section',
 				[ 
-					'title' => 'سوالات متداول',
+					'title' => 'سفارشات',
 					'priority' => 1,
 					'panel' => 'demo_panel'
 				]
@@ -125,6 +125,10 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_phones', 'لینک دکمه شماره تماس ها' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'text', 'btn_link_instagram', 'لینک دکمه اینستاگرام ها' );
 			$this->cyn_add_control( $wp_customize, 'footer_section', 'textarea', 'enamad', 'کد ای نماد' );
+
+			//orders
+			$this->cyn_add_control( $wp_customize, 'order_section', 'text', 'cyn_order_text_notice', 'متن ' );
+			$this->cyn_add_control( $wp_customize, 'order_section', 'text', 'cyn_order_link_notice', 'لینک ' );
 		}
 
 

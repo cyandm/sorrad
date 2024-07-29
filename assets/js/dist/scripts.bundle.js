@@ -29,6 +29,18 @@
       $("#sliding-menu").removeClass("show");
     });
   });
+  function addIcons() {
+    var _a;
+    (_a = document.querySelectorAll("#main-menu .menu-item-has-children")) == null ? void 0 : _a.forEach((menu) => {
+      var _a2;
+      const svg = (_a2 = document.querySelector("svg#chevron-down")) == null ? void 0 : _a2.cloneNode(true);
+      const link = menu.querySelector("a");
+      svg.classList.remove("hidden");
+      svg.classList.add("mr-1", "size-3");
+      link.appendChild(svg);
+    });
+  }
+  addIcons();
 
   // assets/js/modules/popup.js
   jQuery(document).ready(function($) {
@@ -10262,6 +10274,27 @@
     });
   }
   taxonomyFilter();
+  function priceFilter() {
+    const maxPrice = document.querySelector('input[type="range"]#maxPrice');
+    const minPrice = document.querySelector('input[type="range"]#minPrice');
+    const minPriceText = document.querySelector("#minPriceText");
+    const maxPriceText = document.querySelector("#maxPriceText");
+    if (!maxPrice || !minPrice)
+      return;
+    minPrice.addEventListener("change", (e) => {
+      minPriceText.value = e.target.value;
+    });
+    minPriceText.addEventListener("change", (e) => {
+      minPrice.value = e.target.value;
+    });
+    maxPrice.addEventListener("change", (e) => {
+      maxPriceText.value = e.target.value;
+    });
+    maxPriceText.addEventListener("change", (e) => {
+      maxPrice.value = e.target.value;
+    });
+  }
+  priceFilter();
 
   // assets/js/modules/categoryDropdown.js
   function categoryDropdown() {
@@ -10274,7 +10307,9 @@
       const categoryBase = form.querySelector('input[name="categoryBase"]');
       const pathArray = window.location.pathname.split("/");
       const currentSlug = pathArray[pathArray.indexOf(categoryBase.value) + 1];
-      select.value = currentSlug;
+      if (currentSlug) {
+        select.value = currentSlug;
+      }
       select.addEventListener("change", (event2) => {
         window.location.href = baseUrl.value + "/" + event2.target.value;
       });
@@ -14825,6 +14860,7 @@
       li.classList.add("flex", "flex-row-reverse", "justify-between", "p-1");
       const a = document.createElement("a");
       const svg = icon.cloneNode(true);
+      svg.classList.add("min-w-4");
       a.textContent = heading.textContent;
       a.setAttribute("href", "#" + id);
       li.appendChild(svg);
@@ -14836,42 +14872,17 @@
     });
   });
 
-  // assets/js/ajax/price.js
-  function getWcPrice() {
-    const maxPrice = document.querySelector('input[type="range"]#maxPrice');
-    const minPrice = document.querySelector('input[type="range"]#minPrice');
-    const minPriceText = document.querySelector("#minPriceText");
-    const maxPriceText = document.querySelector("#maxPriceText");
-    if (!maxPrice || !minPrice)
+  // assets/js/modules/preloader.js
+  function preloader() {
+    const preloader2 = document.querySelector("#preloader");
+    if (!preloader2)
       return;
-    minPrice.addEventListener("change", (e) => {
-      jQuery(($) => {
-        $.ajax({
-          type: "post",
-          url: restDetails.url + "cynApi/v1/formatPrice",
-          data: {
-            price: e.target.value
-          },
-          success: (res) => {
-            minPriceText.innerHTML = res;
-          }
-        });
-      });
-    });
-    maxPrice.addEventListener("change", (e) => {
-      jQuery(($) => {
-        $.ajax({
-          type: "post",
-          url: restDetails.url + "cynApi/v1/formatPrice",
-          data: {
-            price: e.target.value
-          },
-          success: (res) => {
-            maxPriceText.innerHTML = res;
-          }
-        });
-      });
+    window.addEventListener("load", () => {
+      preloader2.classList.replace("opacity-100", "opacity-0");
+      setTimeout(() => {
+        preloader2.remove();
+      }, 700);
     });
   }
-  getWcPrice();
+  preloader();
 })();
