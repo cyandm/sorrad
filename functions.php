@@ -22,7 +22,7 @@ require_once ( CYN_THEME_DIRECTORY . '/inc/classes/cyn-rankmath.php' );
 
 
 //instance classes
-new cyn_theme_init( true, '1.0.4' );
+new cyn_theme_init( true, '1.0.5' );
 new cyn_register();
 new cyn_customize();
 new cyn_filters();

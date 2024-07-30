@@ -41,28 +41,18 @@ $lowest_price = get_post_meta( $lowest->ID, '_price', true );
 						<label for="minPrice"
 							   class="text-sm">حداقل قیمت</label>
 
-						<div>
-							<input id="minPriceText"
-								   class="max-w-28"
-								   type="number"
+						<div class="border p-0.5">
+							<input id="minPriceInput"
+								   class="max-w-28 p-[0.4rem] border-none"
+								   name="minPrice"
+								   type="text"
 								   value="<?php echo $_GET['minPrice'] ?? $lowest_price ?>">
 
 
 							<span>تومان</span>
 						</div>
 
-
-
 					</div>
-					<input id="minPrice"
-						   dir="ltr"
-						   min="<?php echo $lowest_price ?>"
-						   max="<?php echo $highest_price ?>"
-						   step="1000"
-						   name="minPrice"
-						   value="<?php echo $_GET['minPrice'] ?? $lowest_price ?>"
-						   type="range"
-						   class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer form-range">
 
 				</div>
 
@@ -71,25 +61,16 @@ $lowest_price = get_post_meta( $lowest->ID, '_price', true );
 
 						<label for="maxPrice"
 							   class="text-sm">حداکثر قیمت</label>
-						<div>
-							<input id="maxPriceText"
-								   class="max-w-28"
-								   type="number"
+						<div class="border p-0.5">
+							<input id="maxPriceInput"
+								   class="max-w-28 p-[0.4rem] border-none"
+								   type="text"
+								   name="maxPrice"
 								   value="<?php echo $_GET['maxPrice'] ?? $lowest_price ?>">
-
-
 							<span>تومان</span>
 						</div>
 					</div>
-					<input id="maxPrice"
-						   step="1000"
-						   min="<?php echo $lowest_price ?>"
-						   max="<?php echo $highest_price ?>"
-						   dir="ltr"
-						   name="maxPrice"
-						   type="range"
-						   value="<?php echo $_GET['maxPrice'] ?? $highest_price ?>"
-						   class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer form-range">
+
 
 				</div>
 			</div>

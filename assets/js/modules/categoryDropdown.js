@@ -15,7 +15,11 @@ function categoryDropdown() {
 		}
 
 		select.addEventListener('change', (event) => {
-			window.location.href = baseUrl.value + '/' + event.target.value;
+			if (event.target.value === 'shop') {
+				window.location.href = '/shop';
+			} else {
+				window.location.href = baseUrl.value + '/' + event.target.value;
+			}
 		});
 	});
 }

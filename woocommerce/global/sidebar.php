@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="space-y-4 sticky top-0">
+<div class="space-y-4">
 	<?php wc_get_template( 'global/category-drop-down.php' ) ?>
 
 

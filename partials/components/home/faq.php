@@ -28,7 +28,7 @@ $faq_cats = get_terms( [
 			<?php endforeach; ?>
 			<div class="fade-in-down"
 				 anim-delay="<?php echo count( $faq_cats ) * 0.3 ?>">
-				<a href="<?php echo '#' ?>"
+				<a href="<?php echo get_field( 'contact_us_link', get_option( 'page_on_front' ) ) ?>"
 				   class="rounded-full block cursor-pointer duration-300 text-black bg-white text-center p-2 border hover:bg-black  hover:border-primary-0 hover:text-white transition-all ">
 					<?php _e( 'تماس با ما', 'cyn-dm' ) ?>
 				</a>

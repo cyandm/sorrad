@@ -17,6 +17,10 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 			add_filter( 'woocommerce_account_menu_items', [ $this, 'customize_dashboard_nav' ], 10, 2 );
 			add_filter( 'woocommerce_account_orders_columns', [ $this, 'add_column_to_order' ], 10, 1 );
 			add_filter( 'woocommerce_catalog_orderby', [ $this, 'customize_orders_column' ], 10, 1 );
+			add_filter( 'woocommerce_show_variation_price', '__return_true' );
+			add_filter( 'woocommerce_billing_fields', [ $this, 'cyn_checkout_fields' ] );
+			add_filter( 'woocommerce_default_address_fields', [ $this, 'cyn_default_field' ] );
+			add_filter( '', [ $this, '' ] );
 
 
 			add_action( 'cyn_title', 'woocommerce_template_single_title', 5 );
@@ -228,6 +232,39 @@ if ( ! class_exists( 'cyn_woocommerce' ) ) {
 
 			return $order_items;
 		}
+
+		function cyn_checkout_fields( $fields ) {
+
+			$fields['billing_country']['class'] = 'hidden';
+			$fields['billing_company']['class'] = 'hidden';
+			$fields['billing_address_2']['class'] = '!hidden';
+
+			$fields['billing_email']['required'] = false;
+			$fields['billing_postcode']['required'] = false;
+			$fields['billing_phone']['required'] = true;
+
+
+
+			return $fields;
+		}
+
+		function cyn_default_field( $fields ) {
+			$fields['email']['required'] = false;
+			$fields['postcode']['required'] = false;
+
+			$fields['city']['class'] = 'form-row-last';
+			$fields['state']['class'] = 'form-row-first';
+
+			$fields['state']['priority'] = '';
+			$fields['city']['priority'] = '';
+			$fields['address_1']['priority'] = '';
+
+
+
+			return $fields;
+
+		}
+
 
 	}
 }

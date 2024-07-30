@@ -10268,30 +10268,30 @@
       taxSearch.addEventListener("keyup", (e) => {
         const value = e.target.value;
         taxItems.forEach((tax) => {
-          tax.classList.toggle("hidden", !tax.innerText.includes(value));
+          tax.classList.toggle(
+            "hidden",
+            !tax.innerText.toLowerCase().includes(value.toLowerCase())
+          );
         });
       });
     });
   }
   taxonomyFilter();
   function priceFilter() {
-    const maxPrice = document.querySelector('input[type="range"]#maxPrice');
-    const minPrice = document.querySelector('input[type="range"]#minPrice');
-    const minPriceText = document.querySelector("#minPriceText");
-    const maxPriceText = document.querySelector("#maxPriceText");
-    if (!maxPrice || !minPrice)
+    const minPriceInput = document.querySelector("#minPriceInput");
+    const maxPriceInput = document.querySelector("#maxPriceInput");
+    if (!minPriceInput || !maxPriceInput)
       return;
-    minPrice.addEventListener("change", (e) => {
-      minPriceText.value = e.target.value;
+    function localStringToNumber(s) {
+      return Number(String(s).replace(/[^0-9.-]+/g, ""));
+    }
+    minPriceInput.addEventListener("keyup", (e) => {
+      var value = e.target.value;
+      e.target.value = value || value === 0 ? localStringToNumber(value).toLocaleString() : "";
     });
-    minPriceText.addEventListener("change", (e) => {
-      minPrice.value = e.target.value;
-    });
-    maxPrice.addEventListener("change", (e) => {
-      maxPriceText.value = e.target.value;
-    });
-    maxPriceText.addEventListener("change", (e) => {
-      maxPrice.value = e.target.value;
+    maxPriceInput.addEventListener("keyup", (e) => {
+      var value = e.target.value;
+      e.target.value = value || value === 0 ? localStringToNumber(value).toLocaleString() : "";
     });
   }
   priceFilter();
@@ -10311,7 +10311,11 @@
         select.value = currentSlug;
       }
       select.addEventListener("change", (event2) => {
-        window.location.href = baseUrl.value + "/" + event2.target.value;
+        if (event2.target.value === "shop") {
+          window.location.href = "/shop";
+        } else {
+          window.location.href = baseUrl.value + "/" + event2.target.value;
+        }
       });
     });
   }
@@ -14891,4 +14895,50 @@
     });
   }
   preloader();
+
+  // assets/js/modules/checkout.js
+  function checkout() {
+    const wrapper = document.querySelector(
+      ".woocommerce-billing-fields__field-wrapper"
+    );
+    if (!wrapper)
+      return;
+    function moveElementToDiv(elementsArr, addClass) {
+      const div = document.createElement("div");
+      div.classList.add("flex");
+      div.classList.add("md:gap-2");
+      div.classList.add("flex-col");
+      div.classList.add("md:flex-row");
+      addClass && div.classList.add(addClass);
+      elementsArr.forEach((elem) => {
+        elem.classList.add("flex-1");
+        div.appendChild(elem);
+      });
+      wrapper.appendChild(div);
+    }
+    setTimeout(() => {
+      moveElementToDiv(
+        [
+          document.querySelector("#billing_first_name_field"),
+          document.querySelector("#billing_last_name_field")
+        ],
+        "order-1"
+      );
+      moveElementToDiv(
+        [
+          document.querySelector("#billing_state_field"),
+          document.querySelector("#billing_city_field")
+        ],
+        "order-2"
+      );
+      moveElementToDiv(
+        [
+          document.querySelector("#billing_address_1_field"),
+          document.querySelector("#billing_postcode_field")
+        ],
+        "order-3"
+      );
+    }, 100);
+  }
+  checkout();
 })();

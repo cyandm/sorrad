@@ -10,7 +10,10 @@ function taxonomyFilter() {
 			const value = e.target.value;
 
 			taxItems.forEach((tax) => {
-				tax.classList.toggle('hidden', !tax.innerText.includes(value));
+				tax.classList.toggle(
+					'hidden',
+					!tax.innerText.toLowerCase().includes(value.toLowerCase())
+				);
 			});
 		});
 	});
@@ -19,28 +22,27 @@ function taxonomyFilter() {
 taxonomyFilter();
 
 function priceFilter() {
-	const maxPrice = document.querySelector('input[type="range"]#maxPrice');
-	const minPrice = document.querySelector('input[type="range"]#minPrice');
+	const minPriceInput = document.querySelector('#minPriceInput');
+	const maxPriceInput = document.querySelector('#maxPriceInput');
 
-	const minPriceText = document.querySelector('#minPriceText');
-	const maxPriceText = document.querySelector('#maxPriceText');
+	if (!minPriceInput || !maxPriceInput) return;
 
-	if (!maxPrice || !minPrice) return;
+	function localStringToNumber(s) {
+		return Number(String(s).replace(/[^0-9.-]+/g, ''));
+	}
 
-	minPrice.addEventListener('change', (e) => {
-		minPriceText.value = e.target.value;
+	minPriceInput.addEventListener('keyup', (e) => {
+		var value = e.target.value;
+
+		e.target.value =
+			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
 	});
 
-	minPriceText.addEventListener('change', (e) => {
-		minPrice.value = e.target.value;
-	});
+	maxPriceInput.addEventListener('keyup', (e) => {
+		var value = e.target.value;
 
-	maxPrice.addEventListener('change', (e) => {
-		maxPriceText.value = e.target.value;
-	});
-
-	maxPriceText.addEventListener('change', (e) => {
-		maxPrice.value = e.target.value;
+		e.target.value =
+			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
 	});
 }
 

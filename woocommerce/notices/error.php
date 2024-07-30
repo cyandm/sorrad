@@ -25,10 +25,14 @@ if ( ! $notices ) {
 
 ?>
 
-<ul class="woocommerce-error" role="alert">
+<ul class="flex flex-col gap-2"
+	role="alert">
 	<?php foreach ( $notices as $notice ) : ?>
-		<li<?php echo wc_get_notice_data_attr( $notice ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<div <?php echo wc_get_notice_data_attr( $notice ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			 class="bg-rose-100 p-2 mb-4 rounded-md border-r-4 [&_a]:!p-2 border-rose-600 text-rose-950 flex justify-between items-center flex-row-reverse max-md:flex-col-reverse 
+					 [&_a]:!border [&_a]:!border-solid [&_a]:!border-rose-700 max-md:[&_a]:!mt-2 [&_a]:!bg-white [&_a]:!text-sm [&_a]:!mr-auto [&_a]:!ml-0 [&_a]:!text-rose-700">
 			<?php echo wc_kses_notice( $notice['notice'] ); ?>
-		</li>
+		</div>
+
 	<?php endforeach; ?>
 </ul>

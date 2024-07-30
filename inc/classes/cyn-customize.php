@@ -108,8 +108,8 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 
 
 			//header
-			$this->cyn_add_control( $wp_customize, 'header_section', 'text', 'link_search_page', 'لینک صفحه جستجو' );
-			$this->cyn_add_control( $wp_customize, 'header_section', 'text', 'link_user_page', 'لینک صفحه داشبورد کاربران' );
+			$this->cyn_add_control( $wp_customize, 'header_section', 'file', 'header_custom_logo', 'لوگو موبایل' );
+
 
 			//social
 			$this->cyn_add_control( $wp_customize, 'social_section', 'text', 'link_linkedin', 'اینستاگرام' );

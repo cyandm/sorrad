@@ -16,9 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			wp_dropdown_categories( [ 
 				'show_option_none' => 'هیچکدام',
+				'option_none_value' => 'shop',
 				'selected' => -1,
 				'taxonomy' => 'product_cat',
-				'hide_empty' => false,
+				'hide_empty' => true,
 				'parent' => 0,
 				'class' => 'form-select rounded-lg border border-gray-300 cursor-pointer',
 				'value_field' => 'slug'

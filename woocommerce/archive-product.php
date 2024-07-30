@@ -17,6 +17,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// global $wp_query;
+// var_dump( $wp_query->tax_query );
+
 get_header( 'shop' );
 
 /**

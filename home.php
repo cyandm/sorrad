@@ -5,6 +5,7 @@ $home_blog_id = get_option( 'page_for_posts' );
 $feature_posts = get_field( 'feature_posts', $home_blog_id );
 $selected_cats = get_field( 'selected_cats', $home_blog_id );
 
+$view_all = get_field( 'view_all', $home_blog_id );
 
 ?>
 
@@ -19,7 +20,7 @@ $selected_cats = get_field( 'selected_cats', $home_blog_id );
 					'title' => get_the_title( $post_id ),
 					'link' => get_permalink( $post_id ),
 					'img_id' => get_post_thumbnail_id( $post_id ),
-					'class' => $index === 0 ? 'md:col-span-2' : 'md:col-span-1' ] ) ?>
+					'class' => in_array( $index, [ 0, 3 ] ) ? 'md:col-span-2' : 'md:col-span-1' ] ) ?>
 			<?php endforeach; ?>
 		</div>
 
@@ -57,7 +58,7 @@ $selected_cats = get_field( 'selected_cats', $home_blog_id );
 			<?php endforeach; ?>
 		</div>
 
-		<div>
+		<div class="md:hidden">
 			<swiper-container space-between="8"
 							  pagination="true"
 							  pagination-el="#categoryPagination">
@@ -82,15 +83,23 @@ $selected_cats = get_field( 'selected_cats', $home_blog_id );
 
 	<?php endif; ?>
 
-	<div class="flex justify-between">
+	<div class="flex justify-between items-center">
 		<h2 class="text-xl md:text-4xl font-medium">مقالات تازه منتشر شده</h2>
+
+		<a href="<?php echo $view_all ?>">
+			<span>مشاهده همه</span>
+
+			<svg class="icon -rotate-90">
+				<use href="#icon-Arrow,-Up-1" />
+			</svg>
+		</a>
 	</div>
 
 	<div class="py-4"></div>
 
 
-	<div class="flex gap-3 [&_>_*]:flex-1 max-md:flex-col">
-		<?php foreach ( get_posts( [ 'posts_per_page' => 3 ] ) as $post ) : ?>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 [&_>_*]:flex-1 max-md:flex-col">
+		<?php foreach ( get_posts( [ 'posts_per_page' => 8 ] ) as $post ) : ?>
 			<?php cyn_get_card( 'post' ) ?>
 		<?php endforeach; ?>
 	</div>

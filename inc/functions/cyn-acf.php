@@ -136,6 +136,11 @@ function cyn_register_acf_home_page() {
 		] ) );
 	}
 
+	array_push( $fields, cyn_acf_add_tab( 'دیگر تنظیمات' ) );
+	array_push( $fields, cyn_acf_add_link( 'contact_us_link', 'لینک تماس با ما - سوالات متداول' ) );
+
+
+
 	$location = [ 
 		[ 
 			[ 
@@ -222,6 +227,7 @@ function cyn_register_acf_home_blog() {
 	$fields = [ 
 		cyn_acf_add_post_object( 'feature_posts', 'پست های برجسته', 'post', 100, 1 ),
 		cyn_acf_add_options( 'selected_cats', 'دسته بندی های برجسته', $choices, 1 ),
+		cyn_acf_add_link( 'view_all', 'مشاهده همه' )
 	];
 
 	$location = [ 

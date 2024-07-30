@@ -22,7 +22,7 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 	<body <?php body_class( 'overflow-x-hidden font-peyda' ) ?>>
 		<?php wp_body_open() ?>
 
-		<?php cyn_get_component( 'preloader' ) ?>
+		<?php //cyn_get_component( 'preloader' ) ?>
 
 		<?php if ( $render_template ) : ?>
 
@@ -41,12 +41,27 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 							}
 							?>
 						</div>
-						<div class="col-span-6 xl:col-span-8">
+
+
+						<div class="col-span-6 xl:col-span-8 flex gap-1">
+
+
+
 							<div class="block xl:hidden "
 								 id="menu-slide-icon">
 								<svg class="icon rotate-180 bg-black rounded-full text-white size-10 p-2">
 									<use href="#icon-menu-burger-square" />
 								</svg>
+							</div>
+
+							<div class="block xl:hidden">
+								<a href="/">
+									<div class="bg-black rounded-full size-10 p-1.5 flex justify-center items-center">
+										<img src="<?php echo get_option( 'header_custom_logo' ) ?>"
+											 alt="">
+									</div>
+
+								</a>
 							</div>
 
 							<?php wp_nav_menu( [ 
