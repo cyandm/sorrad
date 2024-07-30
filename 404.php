@@ -8,7 +8,7 @@
 		<p class="text-gray-600 text-base mt-4 mb-6">متاسفانه صفحه ی مورد نظر یافت نشد!</p>
 		<img class="mx-auto"
 			 src="<?= get_stylesheet_directory_uri() . '/assets/img/404.png' ?>" />
-		<a href="<?php home_url(); ?>"
+		<a href="<?php echo home_url(); ?>"
 		   class="inline-block primary-btn my-6">بازگشت به صفحه اصلی</a>
 	</div>
 </section>
