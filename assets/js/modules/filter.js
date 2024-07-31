@@ -22,8 +22,8 @@ function taxonomyFilter() {
 taxonomyFilter();
 
 function priceFilter() {
-	const minPriceInput = document.querySelector('#minPriceInput');
-	const maxPriceInput = document.querySelector('#maxPriceInput');
+	const minPriceInput = document.querySelectorAll('#minPriceInput');
+	const maxPriceInput = document.querySelectorAll('#maxPriceInput');
 
 	if (!minPriceInput || !maxPriceInput) return;
 
@@ -31,32 +31,22 @@ function priceFilter() {
 		return Number(String(s).replace(/[^0-9.-]+/g, ''));
 	}
 
-	minPriceInput.addEventListener('keyup', (e) => {
-		var value = e.target.value;
+	minPriceInput.forEach((el) => {
+		el.addEventListener('input', (e) => {
+			var value = e.target.value;
 
-		e.target.value =
-			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+			e.target.value =
+				value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+		});
 	});
 
-	minPriceInput.addEventListener('touchend', (e) => {
-		var value = e.target.value;
+	minPriceInput.forEach((el) => {
+		el.addEventListener('input', (e) => {
+			var value = e.target.value;
 
-		e.target.value =
-			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
-	});
-
-	maxPriceInput.addEventListener('keyup', (e) => {
-		var value = e.target.value;
-
-		e.target.value =
-			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
-	});
-
-	maxPriceInput.addEventListener('touchend', (e) => {
-		var value = e.target.value;
-
-		e.target.value =
-			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+			e.target.value =
+				value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+		});
 	});
 }
 
