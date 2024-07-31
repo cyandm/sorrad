@@ -38,7 +38,21 @@ function priceFilter() {
 			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
 	});
 
+	minPriceInput.addEventListener('touchend', (e) => {
+		var value = e.target.value;
+
+		e.target.value =
+			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+	});
+
 	maxPriceInput.addEventListener('keyup', (e) => {
+		var value = e.target.value;
+
+		e.target.value =
+			value || value === 0 ? localStringToNumber(value).toLocaleString() : '';
+	});
+
+	maxPriceInput.addEventListener('touchend', (e) => {
 		var value = e.target.value;
 
 		e.target.value =

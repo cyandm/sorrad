@@ -15,11 +15,11 @@ $btn_link_phones = get_option( 'btn_link_phones' );
 			</h1>
 			<h3 class="text-xs lg:text-xl w-[42%] lg:w-[100%]">ما منتظر دریافت پیام های شما و پاسخ به سوالاتتون هستیم.
 			</h3>
-			<div class=" lg:bg-none rounded-3xl lg:rounded-none p-8 lg:p-0 mt-[7.5rem] md:mt-20">
+			<div class="bg-gray-300 lg:bg-none rounded-3xl lg:rounded-none p-8 lg:p-0 mt-[7.5rem] md:mt-20">
 				<div class="text-xl font-light [&_a]:underline">
 					<?php the_content(); ?>
 				</div>
-				<div class="flex gap-4 mb-16 mt-7">
+				<div class="flex gap-4 md:mb-16 mt-7">
 					<a class="flex justify-center items-center bg-gray-200 px-1 py-2 rounded-3xl bg-white-24 text-xs"
 					   href="<?= esc_url( $btn_link_whatsapp ); ?>">
 

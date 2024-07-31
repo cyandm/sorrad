@@ -66,7 +66,7 @@ $lowest_price = get_post_meta( $lowest->ID, '_price', true );
 								   class="max-w-28 p-[0.4rem] border-none"
 								   type="text"
 								   name="maxPrice"
-								   value="<?php echo $_GET['maxPrice'] ?? $lowest_price ?>">
+								   value="<?php echo $_GET['maxPrice'] ?? $highest_price ?>">
 							<span>تومان</span>
 						</div>
 					</div>

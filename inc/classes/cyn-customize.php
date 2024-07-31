@@ -8,8 +8,9 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 
 		public function cyn_basic_settings( $wp_customize ) {
 
-			$this->cyn_register_panel_demo( $wp_customize );
-			//$this->cyn_register_panel_demo_2( $wp_customize );
+			$this->cyn_register_panel_general( $wp_customize );
+			$this->cyn_register_panel_shortcode( $wp_customize );
+			$this->cyn_register_panel_custom_code( $wp_customize );
 
 		}
 
@@ -59,12 +60,12 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			}
 		}
 
-		private function cyn_register_panel_demo( $wp_customize ) {
+		private function cyn_register_panel_general( $wp_customize ) {
 
 			$wp_customize->add_panel(
-				'demo_panel',
+				'general_panel',
 				[ 
-					'title' => 'CyanTheme - تنظیمات قالب',
+					'title' => 'تنظیمات عمومی قالب',
 					'priority' => 1
 				]
 			);
@@ -75,7 +76,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 				[ 
 					'title' => 'سربرگ',
 					'priority' => 1,
-					'panel' => 'demo_panel'
+					'panel' => 'general_panel'
 				]
 			);
 
@@ -84,7 +85,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 				[ 
 					'title' => 'شبکه های اجتماعی',
 					'priority' => 1,
-					'panel' => 'demo_panel'
+					'panel' => 'general_panel'
 				]
 			);
 
@@ -93,7 +94,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 				[ 
 					'title' => 'فوتر - پابرگ',
 					'priority' => 1,
-					'panel' => 'demo_panel'
+					'panel' => 'general_panel'
 				]
 			);
 
@@ -102,7 +103,7 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 				[ 
 					'title' => 'سفارشات',
 					'priority' => 1,
-					'panel' => 'demo_panel'
+					'panel' => 'general_panel'
 				]
 			);
 
@@ -131,6 +132,78 @@ if ( ! class_exists( 'cyn_customize' ) ) {
 			$this->cyn_add_control( $wp_customize, 'order_section', 'text', 'cyn_order_link_notice', 'لینک ' );
 		}
 
+		private function cyn_register_panel_shortcode( $wp_customize ) {
+			$wp_customize->add_panel(
+				'shortcode_panel',
+				[ 
+					'title' => 'تنظیمات کدهای کوتاه',
+					'priority' => 1
+				]
+			);
 
+			$wp_customize->add_section(
+				'showcase_section',
+				[ 
+					'title' => 'تنظیمات ویترین',
+					'priority' => 1,
+					'panel' => 'shortcode_panel'
+				]
+			);
+
+			$this->cyn_add_control( $wp_customize, 'showcase_section', 'text', 'cyn_shortcode_showcase_link', 'لینک ویترین' );
+			$this->cyn_add_control( $wp_customize, 'showcase_section', 'text', 'cyn_shortcode_showcase_text', 'متن ویترین' );
+
+		}
+
+		private function cyn_register_panel_custom_code( $wp_customize ) {
+			$wp_customize->add_panel(
+				'custom_code',
+				[ 
+					'title' => 'تنظیمات کدهای سفارشی',
+					'priority' => 1
+				]
+			);
+
+			$wp_customize->add_section(
+				'head_section',
+				[ 
+					'title' => 'داخل تگ head',
+					'priority' => 1,
+					'panel' => 'custom_code'
+				]
+			);
+
+
+			for ( $i = 1; $i <= 10; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'head_section', 'textarea', "cyn_head_code_$i", "کد سفارشی $i" );
+			}
+
+			$wp_customize->add_section(
+				'start_body_section',
+				[ 
+					'title' => 'ابتدای تگ body',
+					'priority' => 1,
+					'panel' => 'custom_code'
+				]
+			);
+
+			for ( $i = 1; $i <= 10; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'start_body_section', 'textarea', "cyn_start_body_code_$i", "کد سفارشی $i" );
+			}
+
+
+			$wp_customize->add_section(
+				'end_body_section',
+				[ 
+					'title' => 'انتهای تگ body',
+					'priority' => 1,
+					'panel' => 'custom_code'
+				]
+			);
+
+			for ( $i = 1; $i <= 10; $i++ ) {
+				$this->cyn_add_control( $wp_customize, 'end_body_section', 'textarea', "cyn_end_body_code_$i", "کد سفارشی $i" );
+			}
+		}
 	}
 }

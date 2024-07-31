@@ -46,6 +46,11 @@
 			'container' => 'ul'
 		] ); ?>
 
+
+		<div>
+			<?php echo do_shortcode( '[cyn_showcase]' ) ?>
+		</div>
+
 		<ul class="flex flex-wrap flex-row gap-3 mt-9 justify-center">
 			<?php
 

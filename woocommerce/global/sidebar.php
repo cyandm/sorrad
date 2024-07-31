@@ -24,6 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="space-y-4">
+
+	<?php echo do_shortcode( '[cyn_showcase]' ) ?>
+
 	<?php wc_get_template( 'global/category-drop-down.php' ) ?>
 
 
