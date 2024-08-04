@@ -22,7 +22,7 @@ $link_whatsapp = get_option( 'link_whatsapp' );
 	<body <?php body_class( 'overflow-x-hidden font-peyda' ) ?>>
 		<?php wp_body_open() ?>
 
-		<?php //cyn_get_component( 'preloader' ) ?>
+		<?php cyn_get_component( 'preloader' ) ?>
 
 		<?php if ( $render_template ) : ?>
 

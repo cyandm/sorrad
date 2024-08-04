@@ -98,9 +98,11 @@ $search_type = empty( $_GET['search-type'] ) ? 'all' : $_GET['search-type'];
 
 
 		<div class="">
-			<span class="">
-				<?php echo $wp_query->post_count . ' نتیجه' ?>
-			</span>
+			<?php if ( ! empty( $_GET['s'] ) ) : ?>
+				<span class="">
+					<?php echo $wp_query->post_count . ' نتیجه' ?>
+				</span>
+			<?php endif ?>
 		</div>
 	</div>
 

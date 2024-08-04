@@ -32,6 +32,11 @@ function priceFilter() {
 	}
 
 	minPriceInput.forEach((el) => {
+		el.value =
+			el.value || el.value === 0
+				? localStringToNumber(el.value).toLocaleString()
+				: '';
+
 		el.addEventListener('input', (e) => {
 			var value = e.target.value;
 
@@ -40,7 +45,12 @@ function priceFilter() {
 		});
 	});
 
-	minPriceInput.forEach((el) => {
+	maxPriceInput.forEach((el) => {
+		el.value =
+			el.value || el.value === 0
+				? localStringToNumber(el.value).toLocaleString()
+				: '';
+
 		el.addEventListener('input', (e) => {
 			var value = e.target.value;
 
